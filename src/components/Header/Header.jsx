@@ -1,17 +1,24 @@
 import React, { useState } from "react";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/logo.png";
 import Avatar from "../../assets/images/avatar.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigation = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
   };
-
   const userAvatar = Avatar;
+
+  const handleLogin = () => {
+    navigation("/login");
+  };
+  const handleRegister = () => {
+    navigation("/register");
+  };
 
   return (
     <>
@@ -31,8 +38,13 @@ const Header = () => {
               </a>
             </div>
             <div className="col-span-3 justify-self-end flex justify-center items-center gap-10">
-              <button className="text-[14px] text-white">Log-in</button>
-              <button className="btn btn-outline btn-sm text-[14px] text-white">
+              <button onClick={handleLogin} className="text-[14px] text-white">
+                Log-in
+              </button>
+              <button
+                onClick={handleRegister}
+                className="btn btn-outline btn-sm text-[14px] text-white"
+              >
                 Sign Up
               </button>
             </div>
@@ -79,7 +91,7 @@ const Header = () => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                  className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 z-10"
                 >
                   <li>
                     <a className="justify-between">

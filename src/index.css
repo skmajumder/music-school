@@ -7,6 +7,11 @@ body {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.2;
+  color: #000000;
+}
+
+.section {
+  padding: 50px 0;
 }
 
 .carousel .thumbs-wrapper {
