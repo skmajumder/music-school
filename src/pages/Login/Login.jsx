@@ -6,7 +6,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
-  const { signIn, googleSignIn } = useAuth();
+  const { signIn } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
   // * Find out the current/active route
@@ -36,26 +36,6 @@ const Login = () => {
       })
       .catch((error) => {
         const loginErrorMessage = error.message;
-      });
-  };
-
-  // * SignIn user with Google by firebase authentication
-  const handleGoogleSignIn = () => {
-    googleSignIn()
-      .then((result) => {
-        const user = result.user;
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "User Signin successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate(redirectLocation);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
       });
   };
 
@@ -135,7 +115,7 @@ const Login = () => {
               </div>
             </form>
             <div className="divider">OR</div>
-            <GoogleLogin handleGoogleSignIn={handleGoogleSignIn} />
+            <GoogleLogin />
           </div>
         </div>
       </section>

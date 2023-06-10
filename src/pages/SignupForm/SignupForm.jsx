@@ -8,7 +8,7 @@ import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
 
 const SignupForm = () => {
-  const { signUp, googleSignIn, logOut } = useAuth();
+  const { signUp, logOut } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
   const activeRouterLocation = useLocation();
@@ -57,47 +57,48 @@ const SignupForm = () => {
     const userPhotoUrl = data.photoUrl;
     const userGender = data.gender;
     const userPhoneNumber = data.phoneNumber;
-    const role = "user";
+
+    if (!validateURL(userPhotoUrl)) {
+      return;
+    }
 
     // * Creating the user by firebase authentication
     signUp(userEmail, userPassword)
       .then((userCredential) => {
         const user = userCredential.user;
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "User create successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
         reset();
         updateUserInformation(user, userName, userPhotoUrl);
+        const savedUser = {
+          name: userName,
+          email: userEmail,
+          photo: userPhotoUrl,
+          gender: userGender,
+          phone: userPhoneNumber,
+          role: "user",
+        };
+        fetch(`http://localhost:3000/users`, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(savedUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "User create successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
+          });
         /**
          * * After successful registration,
          * * logout the user for updating the user information in the database
          * * and redirect to the login page
          */
         logOut();
-        navigate(redirectLocation);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
-  };
-
-  // * SignIn user with Google by firebase authentication
-  const handleGoogleSignIn = () => {
-    googleSignIn()
-      .then((result) => {
-        const user = result.user;
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "User Signin successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
         navigate(redirectLocation);
       })
       .catch((error) => {
@@ -298,7 +299,7 @@ const SignupForm = () => {
               </div>
             </form>
             <div className="divider">OR</div>
-            <GoogleLogin handleGoogleSignIn={handleGoogleSignIn} />
+            <GoogleLogin />
           </div>
         </div>
       </section>
