@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: "Geologica", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+}
