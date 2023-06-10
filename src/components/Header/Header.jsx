@@ -3,15 +3,18 @@ import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/logo.png";
 import Avatar from "../../assets/images/avatar.png";
+import useAuth from "../../hooks/useAuth";
 
 const Header = () => {
+  const { user, logOut } = useAuth();
+
   const [isOpen, setIsOpen] = useState(false);
   const navigation = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
   };
-  const userAvatar = Avatar;
+  const userAvatar = user?.photoURL || Avatar;
 
   const handleLogin = () => {
     navigation("/login");
@@ -38,15 +41,31 @@ const Header = () => {
               </a>
             </div>
             <div className="col-span-3 justify-self-end flex justify-center items-center gap-10">
-              <button onClick={handleLogin} className="text-[14px] text-white">
-                Log-in
-              </button>
-              <button
-                onClick={handleRegister}
-                className="btn btn-outline btn-sm text-[14px] text-white"
-              >
-                Sign Up
-              </button>
+              {user ? (
+                <>
+                  <button
+                    onClick={logOut}
+                    className="btn btn-outline btn-sm text-[12px] text-white"
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    onClick={handleLogin}
+                    className="text-[14px] text-white"
+                  >
+                    Log-in
+                  </button>
+                  <button
+                    onClick={handleRegister}
+                    className="btn btn-outline btn-sm text-[12px] text-white"
+                  >
+                    Sign Up
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -59,14 +78,14 @@ const Header = () => {
         <div className="container px-10">
           <div className="flex items-center justify-between">
             <div className="w-3/12">
-              <a href="/" className="inline-block">
+              <Link to="/" className="inline-block">
                 <img src={Logo} alt="Logo" className="h-auto md:h-14" />
-              </a>
+              </Link>
             </div>
             <nav className="w-6/12 hidden md:block">
-              <ul className="flex justify-center space-x-6 text-[15px] text-[#000000f6] font-normal leading-6">
+              <ul className="flex justify-center space-x-6 uppercase text-[14px] text-[#000000f6] font-medium leading-6">
                 <li>
-                  <a href="#">Home</a>
+                  <Link className="nav-text" to={"/"}>Home</Link>
                 </li>
                 <li>
                   <a href="#">About</a>
@@ -93,18 +112,47 @@ const Header = () => {
                   tabIndex={0}
                   className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 z-10"
                 >
-                  <li>
-                    <a className="justify-between">
-                      Profile
-                      <span className="badge">New</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>Settings</a>
-                  </li>
-                  <li>
-                    <a>Logout</a>
-                  </li>
+                  {!user ? (
+                    <>
+                      <li>
+                        <button
+                          onClick={handleLogin}
+                          className="underline underline-offset-4 text-blue-700 uppercase font-medium text-[10px]"
+                        >
+                          Log-In
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          onClick={handleRegister}
+                          className="underline underline-offset-4 text-blue-700 uppercase font-medium text-[10px]"
+                        >
+                          Sign-Up
+                        </button>
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li>
+                        <span className="justify-between">
+                          {user?.displayName}
+                        </span>
+                      </li>
+                      <li>
+                        <a className="underline underline-offset-4 text-blue-700 uppercase font-medium text-[10px]">
+                          Settings
+                        </a>
+                      </li>
+                      <li>
+                        <button
+                          onClick={logOut}
+                          className="underline underline-offset-4 text-blue-700 uppercase font-medium text-[10px]"
+                        >
+                          Logout
+                        </button>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </div>
             </div>
@@ -131,7 +179,7 @@ const Header = () => {
             <nav className="mt-2">
               <ul className="flex flex-col items-center space-y-4 text-[15px] text-[#000000dc] leading-6">
                 <li>
-                  <a href="#">Home</a>
+                  <Link href={"/"}>Home</Link>
                 </li>
                 <li>
                   <a href="#">About</a>
