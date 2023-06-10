@@ -47,7 +47,7 @@ const Header = () => {
         <div className="container px-10">
           <div className="flex items-center justify-between">
             <div className="w-3/12">
-              <a href="/">
+              <a href="/" className="inline-block">
                 <img src={Logo} alt="Logo" className="h-auto md:h-14" />
               </a>
             </div>
