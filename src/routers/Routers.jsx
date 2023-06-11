@@ -6,6 +6,8 @@ import Login from "../pages/Login/Login";
 import SignupForm from "../pages/SignupForm/SignupForm";
 import CourseLayout from "../layouts/CourseLayout/CourseLayout";
 import Courses from "../pages/Courses/Courses";
+import InstructorLayout from "../layouts/InstructorLayout/InstructorLayout";
+import Instructors from "../pages/Instructors/Instructors";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,17 @@ const router = createBrowserRouter([
       {
         path: "/classes",
         element: <Courses />,
+      },
+    ],
+  },
+  {
+    path: "instructors",
+    element: <InstructorLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/instructors",
+        element: <Instructors />,
       },
     ],
   },
