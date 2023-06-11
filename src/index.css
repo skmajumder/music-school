@@ -56,3 +56,29 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+.instructor-class:not(:last-of-type)::after {
+  content: "|";
+  margin: 0 3px;
+}
+
+.shape-divider {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.shape-divider::before {
+  content: "";
+  position: absolute;
+  display: block;
+  background-color: #000000;
+  width: 90%;
+  height: 2px;
+  border-radius: 5px;
+}
+
+.shape-divider::before {
+  top: 50%;
+  transform: translateY(-50%);
+}

@@ -90,14 +90,20 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/"}>Instructors</Link>
+                  <Link to={"/"} className="nav-text">
+                    Instructors
+                  </Link>
                 </li>
                 <li>
-                  <Link to={"/"}>Classes</Link>
+                  <Link to={"/"} className="nav-text">
+                    Classes
+                  </Link>
                 </li>
                 {user && (
                   <li>
-                    <Link to={"/"}>Dashboard</Link>
+                    <Link to={"/"} className="nav-text">
+                      Dashboard
+                    </Link>
                   </li>
                 )}
               </ul>

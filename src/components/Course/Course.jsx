@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
-const Class = ({ info }) => {
-  console.log(info);
+const Course = ({ info }) => {
   const {
     image,
     className,
@@ -22,7 +21,7 @@ const Class = ({ info }) => {
           <span className="text-[16px] uppercase font-extralight text-[#181818]">
             class
           </span>
-          <p className="text-[40px] text-[#e43397d0] font-black course-name">
+          <p className="text-[40px] text-[#181818] font-black course-name">
             {className}
           </p>
           <p className="course-info text-[#333745b3] font-light text-[14px] leading-6">
@@ -43,4 +42,4 @@ const Class = ({ info }) => {
   );
 };
 
-export default Class;
+export default Course;

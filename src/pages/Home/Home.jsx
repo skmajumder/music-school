@@ -3,15 +3,17 @@ import Slider from "../../components/Slider/Slider";
 import SeenAs from "../../components/SeenAs/SeenAs";
 import CTA from "../../components/CTA/CTA";
 import About from "./About";
-import AllClass from "./AllClass";
+import AllCourse from "./AllCourse.jsx";
+import AllInstructor from "./AllInstructor";
 
 const Home = () => {
   return (
     <>
       <Slider />
       <About />
-      <AllClass/>
+      <AllCourse />
       <CTA />
+      <AllInstructor />
       <SeenAs />
     </>
   );
