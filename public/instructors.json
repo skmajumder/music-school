@@ -5,7 +5,8 @@
     "email": "johnsmith@example.com",
     "numberOfClasses": 3,
     "classesTaken": ["Guitar Class", "Piano Class", "Drum Class"],
-    "bio": "John Smith is a skilled musician with a passion for teaching. He has years of experience in playing multiple instruments and enjoys sharing his knowledge with students. His teaching style focuses on developing technical skills while nurturing creativity and musical expression."
+    "bio": "John Smith is a skilled musician with a passion for teaching. He has years of experience in playing multiple instruments and enjoys sharing his knowledge with students. His teaching style focuses on developing technical skills while nurturing creativity and musical expression.",
+    "numOfStudent": 20
   },
   {
     "image": "https://i.ibb.co/BVxSxZM/instructor-2.jpg",
@@ -13,7 +14,8 @@
     "email": "emilydavis@example.com",
     "numberOfClasses": 2,
     "classesTaken": ["Violin Class", "Flute Class"],
-    "bio": "Emily Davis is a dedicated violinist and flutist who brings her love for classical music into her teaching. With a patient and encouraging approach, she helps students build a strong foundation and develop a deep appreciation for the beauty of string and woodwind instruments."
+    "bio": "Emily Davis is a dedicated violinist and flutist who brings her love for classical music into her teaching. With a patient and encouraging approach, she helps students build a strong foundation and develop a deep appreciation for the beauty of string and woodwind instruments.",
+    "numOfStudent": 22
   },
   {
     "image": "https://i.ibb.co/tp70XkV/instructor-3.jpg",
@@ -21,7 +23,8 @@
     "email": "michaeljohnson@example.com",
     "numberOfClasses": 1,
     "classesTaken": ["Saxophone Class"],
-    "bio": "Michael Johnson is a talented saxophonist known for his smooth jazz improvisations. As an instructor, he focuses on helping students master the techniques of the saxophone and explore the expressive possibilities of this versatile instrument."
+    "bio": "Michael Johnson is a talented saxophonist known for his smooth jazz improvisations. As an instructor, he focuses on helping students master the techniques of the saxophone and explore the expressive possibilities of this versatile instrument.",
+    "numOfStudent": 10
   },
   {
     "image": "https://i.ibb.co/mqFyKhH/instructor-4.jpg",
@@ -29,7 +32,8 @@
     "email": "sarahthompson@example.com",
     "numberOfClasses": 2,
     "classesTaken": ["Banjo", "Sitar"],
-    "bio": "Sarah Thompson is a skilled multi-instrumentalist specializing in the banjo and sitar. Her diverse musical background and passion for world music inspire her teaching style, which encourages students to explore different genres and embrace the cultural richness of these instruments."
+    "bio": "Sarah Thompson is a skilled multi-instrumentalist specializing in the banjo and sitar. Her diverse musical background and passion for world music inspire her teaching style, which encourages students to explore different genres and embrace the cultural richness of these instruments.",
+    "numOfStudent": 15
   },
   {
     "image": "https://i.ibb.co/CnQcBKq/instructor-5.jpg",
@@ -37,7 +41,8 @@
     "email": "davidwilson@example.com",
     "numberOfClasses": 1,
     "classesTaken": ["Accordion Class"],
-    "bio": "David Wilson is an accomplished accordion player with a deep understanding of various folk music traditions. Through his teaching, he introduces students to the unique sounds and techniques of the accordion, fostering a love for folk music and cultural heritage."
+    "bio": "David Wilson is an accomplished accordion player with a deep understanding of various folk music traditions. Through his teaching, he introduces students to the unique sounds and techniques of the accordion, fostering a love for folk music and cultural heritage.",
+    "numOfStudent": 10
   },
   {
     "image": "https://i.ibb.co/gWysQhy/instructor-6.jpg",
@@ -45,7 +50,8 @@
     "email": "oliviaturner@example.com",
     "numberOfClasses": 2,
     "classesTaken": ["Clarinet Class", "Flute Class"],
-    "bio": "Olivia Turner is a passionate clarinetist and flutist who believes in the power of music to inspire and uplift. With her patient and supportive approach, she guides students on their musical journey, helping them develop technical proficiency and expressiveness."
+    "bio": "Olivia Turner is a passionate clarinetist and flutist who believes in the power of music to inspire and uplift. With her patient and supportive approach, she guides students on their musical journey, helping them develop technical proficiency and expressiveness.",
+    "numOfStudent": 8
   },
   {
     "image": "https://i.ibb.co/PzGXZRP/instructor-7.jpg",
@@ -53,7 +59,8 @@
     "email": "robertanderson@example.com",
     "numberOfClasses": 1,
     "classesTaken": ["Guitar Class"],
-    "bio": "Robert Anderson is a versatile guitarist with a deep love for various styles, from classical to rock. His teaching philosophy centers around nurturing students' musicality and encouraging self-expression through the guitar, empowering them to explore their own unique sound."
+    "bio": "Robert Anderson is a versatile guitarist with a deep love for various styles, from classical to rock. His teaching philosophy centers around nurturing students' musicality and encouraging self-expression through the guitar, empowering them to explore their own unique sound.",
+    "numOfStudent": 30
   },
   {
     "image": "https://i.ibb.co/PzGXZRP/instructor-7.jpg",
@@ -61,6 +68,7 @@
     "email": "nehapatel@example.com",
     "numberOfClasses": 1,
     "classesTaken": ["Piano Class"],
-    "bio": "Neha Patel is a skilled pianist who believes in the transformative power of music. Her teaching approach focuses on building a strong foundation of technique and theory while nurturing students' creativity and joy in playing the piano."
+    "bio": "Neha Patel is a skilled pianist who believes in the transformative power of music. Her teaching approach focuses on building a strong foundation of technique and theory while nurturing students' creativity and joy in playing the piano.",
+    "numOfStudent": 12
   }
 ]

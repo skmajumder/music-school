@@ -24,8 +24,25 @@ const Course = ({ info }) => {
           <p className="text-[40px] text-[#181818] font-black course-name">
             {className}
           </p>
+          <p className="course-info text-[#333745b3] font-light text-[14px] leading-6 !mb-2">
+            <span className="text-[#181818] uppercase">Instructor:</span>{" "}
+            {instructorName}
+          </p>
           <p className="course-info text-[#333745b3] font-light text-[14px] leading-6">
             {details}
+          </p>
+          <div className="flex justify-between items-center">
+            <p className="course-info text-[#333745b3] font-light text-[14px] leading-6">
+              <span className="text-[#181818] uppercase">Enrolled:</span>{" "}
+              {enrolledStudents}
+            </p>
+            <p className="course-info text-[#333745b3] font-light text-[14px] leading-6">
+              <span className="text-[#181818] uppercase">Seat Left:</span>{" "}
+              {availableSeats}
+            </p>
+          </div>
+          <p className="course-info text-[#333745b3] font-light text-[14px] leading-6">
+            <span className="text-[#181818] uppercase">Price:</span> {price}
           </p>
           <div className="mt-8">
             <Link

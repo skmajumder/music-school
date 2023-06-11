@@ -1,7 +1,7 @@
 [
   {
     "image": "https://i.ibb.co/vs4Zwcb/guitar.jpg",
-    "className": "Guitar Class",
+    "className": "Guitar",
     "instructorName": "John Smith",
     "details": "Learn to play the guitar from scratch. Join our class and become a guitar virtuoso!",
     "availableSeats": 10,
@@ -11,7 +11,7 @@
   },
   {
     "image": "https://i.ibb.co/k2R9yVg/piano.jpg",
-    "className": "Piano Class",
+    "className": "Piano",
     "instructorName": "Emily Davis",
     "details": "Discover the world of piano music. Unleash your creativity with beautiful melodies!",
     "availableSeats": 8,
@@ -21,7 +21,7 @@
   },
   {
     "image": "https://i.ibb.co/ry1qJYc/drum.jpg",
-    "className": "Drum Class",
+    "className": "Drum",
     "instructorName": "Michael Johnson",
     "details": "Learn the fundamentals of drumming. Feel the rhythm and be the heartbeat of the band!",
     "availableSeats": 6,
@@ -31,7 +31,7 @@
   },
   {
     "image": "https://i.ibb.co/qxJvhLT/violin.jpg",
-    "className": "Violin Class",
+    "className": "Violin",
     "instructorName": "Sarah Thompson",
     "details": "Master the art of playing the violin. Express your emotions through beautiful strings!",
     "availableSeats": 10,
@@ -41,7 +41,7 @@
   },
   {
     "image": "https://i.ibb.co/DbBSpBb/saxophone.jpg",
-    "className": "Saxophone Class",
+    "className": "Saxophone",
     "instructorName": "David Wilson",
     "details": "Experience the beauty of saxophone melodies. Let your soul soar with smooth jazz and soulful tunes!",
     "availableSeats": 5,
@@ -51,7 +51,7 @@
   },
   {
     "image": "https://i.ibb.co/j5Bp1Jv/flute.jpg",
-    "className": "Flute Class",
+    "className": "Flute",
     "instructorName": "Olivia Turner",
     "details": "Learn to play enchanting tunes on the flute. Create magical melodies that touch hearts!",
     "availableSeats": 8,
@@ -61,7 +61,7 @@
   },
   {
     "image": "https://i.ibb.co/dBd2938/banjo.jpg",
-    "className": "Banjo Class",
+    "className": "Banjo",
     "instructorName": "Robert Anderson",
     "details": "Discover the joy of playing the banjo. Strum along and embrace the twangy sounds of folk music!",
     "availableSeats": 6,
@@ -71,7 +71,7 @@
   },
   {
     "image": "https://i.ibb.co/3pNNYC4/sitar.jpg",
-    "className": "Sitar Class",
+    "className": "Sitar",
     "instructorName": "Neha Patel",
     "details": "Explore the rich sounds of the sitar. Dive into the depths of Indian classical music!",
     "availableSeats": 9,
@@ -81,7 +81,7 @@
   },
   {
     "image": "https://i.ibb.co/4dRhjdj/accordion.jpg",
-    "className": "Accordion Class",
+    "className": "Accordion",
     "instructorName": "Antonio Rossi",
     "details": "Learn to play the accordion with flair. Unleash your musicality with this versatile instrument!",
     "availableSeats": 7,
@@ -91,7 +91,7 @@
   },
   {
     "image": "https://i.ibb.co/J73J1wq/clarinet.jpg",
-    "className": "Clarinet Class",
+    "className": "Clarinet",
     "instructorName": "Sophie Martin",
     "details": "Discover the beauty of clarinet music. Create soul-stirring melodies with this elegant instrument!",
     "availableSeats": 10,
