@@ -48,6 +48,7 @@ const AuthProvider = ({ children }) => {
     return () => unSubscribe();
   }, []);
 
+
   const authInfo = { user, loading, signUp, signIn, googleSignIn, logOut };
 
   return (

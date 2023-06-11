@@ -45,7 +45,14 @@ body {
 }
 
 /* Footer */
-.site-footer{
+.site-footer {
   padding-top: 80px;
   padding-bottom: 30px;
+}
+
+.course-info {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

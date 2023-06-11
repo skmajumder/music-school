@@ -1,0 +1,102 @@
+[
+  {
+    "image": "https://i.ibb.co/vs4Zwcb/guitar.jpg",
+    "className": "Guitar Class",
+    "instructorName": "John Smith",
+    "details": "Learn to play the guitar from scratch. Join our class and become a guitar virtuoso!",
+    "availableSeats": 10,
+    "price": 50,
+    "enrolledStudents": 5,
+    "startDate": "2023-07-01"
+  },
+  {
+    "image": "https://i.ibb.co/k2R9yVg/piano.jpg",
+    "className": "Piano Class",
+    "instructorName": "Emily Davis",
+    "details": "Discover the world of piano music. Unleash your creativity with beautiful melodies!",
+    "availableSeats": 8,
+    "price": 60,
+    "enrolledStudents": 3,
+    "startDate": "2023-07-15"
+  },
+  {
+    "image": "https://i.ibb.co/ry1qJYc/drum.jpg",
+    "className": "Drum Class",
+    "instructorName": "Michael Johnson",
+    "details": "Learn the fundamentals of drumming. Feel the rhythm and be the heartbeat of the band!",
+    "availableSeats": 6,
+    "price": 45,
+    "enrolledStudents": 2,
+    "startDate": "2023-08-01"
+  },
+  {
+    "image": "https://i.ibb.co/qxJvhLT/violin.jpg",
+    "className": "Violin Class",
+    "instructorName": "Sarah Thompson",
+    "details": "Master the art of playing the violin. Express your emotions through beautiful strings!",
+    "availableSeats": 10,
+    "price": 55,
+    "enrolledStudents": 7,
+    "startDate": "2023-07-10"
+  },
+  {
+    "image": "https://i.ibb.co/DbBSpBb/saxophone.jpg",
+    "className": "Saxophone Class",
+    "instructorName": "David Wilson",
+    "details": "Experience the beauty of saxophone melodies. Let your soul soar with smooth jazz and soulful tunes!",
+    "availableSeats": 5,
+    "price": 70,
+    "enrolledStudents": 4,
+    "startDate": "2023-07-20"
+  },
+  {
+    "image": "https://i.ibb.co/j5Bp1Jv/flute.jpg",
+    "className": "Flute Class",
+    "instructorName": "Olivia Turner",
+    "details": "Learn to play enchanting tunes on the flute. Create magical melodies that touch hearts!",
+    "availableSeats": 8,
+    "price": 40,
+    "enrolledStudents": 2,
+    "startDate": "2023-08-05"
+  },
+  {
+    "image": "https://i.ibb.co/dBd2938/banjo.jpg",
+    "className": "Banjo Class",
+    "instructorName": "Robert Anderson",
+    "details": "Discover the joy of playing the banjo. Strum along and embrace the twangy sounds of folk music!",
+    "availableSeats": 6,
+    "price": 55,
+    "enrolledStudents": 3,
+    "startDate": "2023-07-12"
+  },
+  {
+    "image": "https://i.ibb.co/3pNNYC4/sitar.jpg",
+    "className": "Sitar Class",
+    "instructorName": "Neha Patel",
+    "details": "Explore the rich sounds of the sitar. Dive into the depths of Indian classical music!",
+    "availableSeats": 9,
+    "price": 65,
+    "enrolledStudents": 5,
+    "startDate": "2023-07-08"
+  },
+  {
+    "image": "https://i.ibb.co/4dRhjdj/accordion.jpg",
+    "className": "Accordion Class",
+    "instructorName": "Antonio Rossi",
+    "details": "Learn to play the accordion with flair. Unleash your musicality with this versatile instrument!",
+    "availableSeats": 7,
+    "price": 50,
+    "enrolledStudents": 3,
+    "startDate": "2023-07-25"
+  },
+  {
+    "image": "https://i.ibb.co/J73J1wq/clarinet.jpg",
+    "className": "Clarinet Class",
+    "instructorName": "Sophie Martin",
+    "details": "Discover the beauty of clarinet music. Create soul-stirring melodies with this elegant instrument!",
+    "availableSeats": 10,
+    "price": 45,
+    "enrolledStudents": 6,
+    "startDate": "2023-07-03"
+  }
+]
