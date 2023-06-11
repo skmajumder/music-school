@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <>
       <footer className="site-footer bg-[#000000]">
-        <div className="container px-10">
+        <div className="container px-10 space-y-10">
           <div className="grid grid-cols-5 gap-x-7 text-white">
             <div className="widget col-span-2">
               <img src={Logo} className="mb-5 w-[60%]" alt="Logo Footer" />
@@ -98,6 +98,22 @@ const Footer = () => {
               </h4>
               <img src={MapImg} className="w-full" alt="" />
             </div>
+          </div>
+          <hr />
+          <div className="flex justify-between items-center">
+            <ul className="flex justify-between items-center font-light text-[14px] text-[#ffffffb7] gap-5">
+              <li>
+                <Link to={"/"}>Terms of use</Link>
+              </li>
+              <li>|</li>
+              <li>
+                <Link to={"/"}>Privacy policy</Link>
+              </li>
+            </ul>
+            <p className="font-light text-[14px] text-[#ffffffb7]">
+              {" "}
+              &#169; 2023 Sangeetic All rights reserved.
+            </p>
           </div>
         </div>
       </footer>

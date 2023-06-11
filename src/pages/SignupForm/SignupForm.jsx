@@ -176,8 +176,19 @@ const SignupForm = () => {
                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     {...register("password", {
                       required: "Password is required",
+                      minLength: {
+                        value: 6,
+                        message: "Password must be at least 6 characters long",
+                      },
+                      pattern: {
+                        value:
+                          /^(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+                        message:
+                          "Password must contain at least one capital letter and one special character",
+                      },
                     })}
                   />
+
                   <button
                     type="button"
                     className="absolute top-1/2 right-3 transform -translate-y-1/2 focus:outline-none"

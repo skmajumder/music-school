@@ -85,20 +85,21 @@ const Header = () => {
             <nav className="w-6/12 hidden md:block">
               <ul className="flex justify-center space-x-6 uppercase text-[14px] text-[#000000f6] font-medium leading-6">
                 <li>
-                  <Link className="nav-text" to={"/"}>Home</Link>
+                  <Link className="nav-text" to={"/"}>
+                    Home
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">About</a>
+                  <Link to={"/"}>Instructors</Link>
                 </li>
                 <li>
-                  <a href="#">Instractor</a>
+                  <Link to={"/"}>Classes</Link>
                 </li>
-                <li>
-                  <a href="#">Contact</a>
-                </li>
-                <li>
-                  <a href="#">Blog</a>
-                </li>
+                {user && (
+                  <li>
+                    <Link to={"/"}>Dashboard</Link>
+                  </li>
+                )}
               </ul>
             </nav>
             <div className="w-3/12 flex justify-start md:justify-end gap-0 md:gap-3">
@@ -139,9 +140,12 @@ const Header = () => {
                         </span>
                       </li>
                       <li>
-                        <a className="underline underline-offset-4 text-blue-700 uppercase font-medium text-[10px]">
-                          Settings
-                        </a>
+                        <Link
+                          className="underline underline-offset-4 text-blue-700 uppercase font-medium text-[10px]"
+                          to={"/"}
+                        >
+                          Dashboard
+                        </Link>
                       </li>
                       <li>
                         <button
@@ -179,20 +183,21 @@ const Header = () => {
             <nav className="mt-2">
               <ul className="flex flex-col items-center space-y-4 text-[15px] text-[#000000dc] leading-6">
                 <li>
-                  <Link href={"/"}>Home</Link>
+                  <Link className="nav-text" to={"/"}>
+                    Home
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">About</a>
+                  <Link to={"/"}>Instructors</Link>
                 </li>
                 <li>
-                  <a href="#">Instractor</a>
+                  <Link to={"/"}>Classes</Link>
                 </li>
-                <li>
-                  <a href="#">Contact</a>
-                </li>
-                <li>
-                  <a href="#">Blog</a>
-                </li>
+                {user && (
+                  <li>
+                    <Link to={"/"}>Dashboard</Link>
+                  </li>
+                )}
               </ul>
             </nav>
           )}
