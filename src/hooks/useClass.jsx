@@ -4,7 +4,7 @@ const useClass = () => {
   const {
     isLoading: loading,
     data: classes = [],
-    refetch,
+    refetch: courseRefetch,
   } = useQuery({
     queryKey: ["classes"],
     queryFn: async () => {
@@ -12,7 +12,7 @@ const useClass = () => {
       return response.json();
     },
   });
-  return { classes, loading, refetch };
+  return { classes, loading, courseRefetch };
 };
 
 export default useClass;

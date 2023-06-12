@@ -1,9 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import axios from "axios";
+import useCart from "../../hooks/useCart";
+import useClass from "../../hooks/useClass";
 
 const Course = ({ info }) => {
+  const { user } = useAuth();
+  const { refetch } = useCart();
+  const { courseRefetch } = useClass();
   const {
+    _id,
+    classID,
     image,
     className,
     instructorName,
@@ -13,6 +22,41 @@ const Course = ({ info }) => {
     enrolledStudents,
     startDate,
   } = info;
+
+  // * Add to Cart
+  const handleAddToCart = (course) => {
+    if (user && user.email) {
+      const courseInfo = {
+        courseID: _id,
+        name: className,
+        instructor: instructorName,
+        price,
+        email: user.email,
+      };
+      axios.post("http://localhost:3000/carts", courseInfo).then((response) => {
+        if (response.data.insertedId) {
+          axios
+            .patch(`http://localhost:3000/classes/update/${_id}`, {
+              availableSeats: availableSeats - 1,
+              enrolledStudents: enrolledStudents + 1,
+            })
+            .then((response) => {
+              refetch();
+              courseRefetch();
+              Swal.fire(
+                "Successful!",
+                `${className} added to cart successfully`,
+                "success"
+              );
+            })
+            .catch((error) => {
+              console.error("Error updating course data:", error);
+            });
+        }
+      });
+    }
+  };
+
   return (
     <>
       <div className={`music-class ${availableSeats === 0 && "bg-red-300"}`}>
@@ -52,6 +96,7 @@ const Course = ({ info }) => {
           </div>
           <div className="mt-8">
             <button
+              onClick={() => handleAddToCart(info)}
               className={`btn bg-[#E43397] hover:bg-[#e43397d2] flex justify-start items-center gap-1 font-semibold ${
                 availableSeats === 0 && "disabled:!cursor-not-allowed"
               }`}
