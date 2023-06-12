@@ -39,7 +39,7 @@ const Dashboard = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-72 h-full bg-base-200 text-base-content dashboard-menu justify-center gap-3">
+          <ul className="menu p-4 w-64 h-full bg-base-200 text-base-content dashboard-menu justify-center gap-3">
             <li>
               <NavLink to={"/"}>
                 <FaHome />
