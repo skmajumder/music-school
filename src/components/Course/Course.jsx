@@ -5,9 +5,14 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import useCart from "../../hooks/useCart";
 import useClass from "../../hooks/useClass";
+import { useLocation, useNavigate } from "react-router-dom";
+import useUser from "../../hooks/useUser";
+import useLoginUser from "../../hooks/useLoggedUser";
 
 const Course = ({ info }) => {
   const { user } = useAuth();
+  const { loginUser } = useLoginUser();
+
   const { refetch } = useCart();
   const { courseRefetch } = useClass();
   const {
@@ -23,6 +28,9 @@ const Course = ({ info }) => {
     startDate,
   } = info;
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
   // * Add to Cart
   const handleAddToCart = (course) => {
     if (user && user.email) {
@@ -31,6 +39,7 @@ const Course = ({ info }) => {
         name: className,
         instructor: instructorName,
         price,
+        status: "pending",
         email: user.email,
       };
       axios.post("http://localhost:3000/carts", courseInfo).then((response) => {
@@ -52,6 +61,20 @@ const Course = ({ info }) => {
             .catch((error) => {
               console.error("Error updating course data:", error);
             });
+        }
+      });
+    } else {
+      Swal.fire({
+        title: "Please Login",
+        text: `You need join Sangeetic, for Enroll ${className} class`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
         }
       });
     }
@@ -100,7 +123,11 @@ const Course = ({ info }) => {
               className={`btn bg-[#E43397] hover:bg-[#e43397d2] flex justify-start items-center gap-1 font-semibold ${
                 availableSeats === 0 && "disabled:!cursor-not-allowed"
               }`}
-              disabled={availableSeats === 0}
+              disabled={
+                loginUser?.role === "admin" ||
+                loginUser?.role === "instructor" ||
+                availableSeats === 0
+              }
             >
               <span className="text-[#ffffff]">
                 {availableSeats === 0 ? "Enroll End" : "Enroll Now"}

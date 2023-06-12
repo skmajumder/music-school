@@ -1,16 +1,18 @@
 [
   {
+    "_id": "64864db8e8e4613a260c2685",
     "image": "https://i.ibb.co/vs4Zwcb/guitar.jpg",
     "className": "Guitar",
     "instructorName": "John Smith",
     "details": "Learn to play the guitar from scratch. Join our class and become a guitar virtuoso!",
-    "availableSeats": 10,
+    "availableSeats": 11,
     "price": 50,
-    "enrolledStudents": 5,
+    "enrolledStudents": 9,
     "startDate": "2023-07-01",
     "classID": 1
   },
   {
+    "_id": "64864db8e8e4613a260c2686",
     "image": "https://i.ibb.co/k2R9yVg/piano.jpg",
     "className": "Piano",
     "instructorName": "Emily Davis",
@@ -22,17 +24,19 @@
     "classID": 2
   },
   {
+    "_id": "64864db8e8e4613a260c2687",
     "image": "https://i.ibb.co/ry1qJYc/drum.jpg",
     "className": "Drum",
     "instructorName": "Michael Johnson",
     "details": "Learn the fundamentals of drumming. Feel the rhythm and be the heartbeat of the band!",
-    "availableSeats": 6,
+    "availableSeats": 5,
     "price": 45,
-    "enrolledStudents": 2,
+    "enrolledStudents": 3,
     "startDate": "2023-08-01",
     "classID": 3
   },
   {
+    "_id": "64864db8e8e4613a260c2688",
     "image": "https://i.ibb.co/qxJvhLT/violin.jpg",
     "className": "Violin",
     "instructorName": "Sarah Thompson",
@@ -44,6 +48,7 @@
     "classID": 4
   },
   {
+    "_id": "64864db8e8e4613a260c2689",
     "image": "https://i.ibb.co/DbBSpBb/saxophone.jpg",
     "className": "Saxophone",
     "instructorName": "David Wilson",
@@ -55,6 +60,7 @@
     "classID": 5
   },
   {
+    "_id": "64864db8e8e4613a260c268a",
     "image": "https://i.ibb.co/j5Bp1Jv/flute.jpg",
     "className": "Flute",
     "instructorName": "Olivia Turner",
@@ -66,6 +72,7 @@
     "classID": 6
   },
   {
+    "_id": "64864db8e8e4613a260c268b",
     "image": "https://i.ibb.co/dBd2938/banjo.jpg",
     "className": "Banjo",
     "instructorName": "Robert Anderson",
@@ -77,6 +84,7 @@
     "classID": 7
   },
   {
+    "_id": "64864db8e8e4613a260c268c",
     "image": "https://i.ibb.co/3pNNYC4/sitar.jpg",
     "className": "Sitar",
     "instructorName": "Neha Patel",
@@ -88,6 +96,7 @@
     "classID": 8
   },
   {
+    "_id": "64864db8e8e4613a260c268d",
     "image": "https://i.ibb.co/4dRhjdj/accordion.jpg",
     "className": "Accordion",
     "instructorName": "Antonio Rossi",
@@ -99,13 +108,14 @@
     "classID": 9
   },
   {
+    "_id": "64864db8e8e4613a260c268e",
     "image": "https://i.ibb.co/J73J1wq/clarinet.jpg",
     "className": "Clarinet",
     "instructorName": "Sophie Martin",
     "details": "Discover the beauty of clarinet music. Create soul-stirring melodies with this elegant instrument!",
-    "availableSeats": 10,
+    "availableSeats": 0,
     "price": 45,
-    "enrolledStudents": 6,
+    "enrolledStudents": 8,
     "startDate": "2023-07-03",
     "classID": 10
   }
