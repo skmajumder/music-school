@@ -2,10 +2,12 @@ import React from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import {
   FaAlignJustify,
+  FaBuffer,
   FaDiscourse,
   FaHome,
   FaLayerGroup,
   FaMoneyBill,
+  FaUserFriends,
 } from "react-icons/fa";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import useCart from "../../hooks/useCart";
@@ -14,6 +16,9 @@ const Dashboard = () => {
   const { carts } = useCart();
   const pendingCourse = carts.filter((item) => item?.status === "pending");
   const approvedCourse = carts.filter((item) => item?.status === "approved");
+
+  // TODO: Make this dynamic from DB
+  const role = "admin";
 
   return (
     <>
@@ -41,32 +46,59 @@ const Dashboard = () => {
                 Homepage
               </NavLink>
             </li>
-            <li>
-              <NavLink to={"/dashboard/selected-classes"}>
-                <FaDiscourse />
-                Selected Classes
-                <div className="badge badge-accent badge-sm">
-                  {pendingCourse?.length || 0}
-                </div>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={"/dashboard/enrolled-classes"}>
-                <FaLayerGroup />
-                Enrolled Classes
-                <div className="badge badge-accent badge-sm">
-                  {approvedCourse?.length || 0}
-                </div>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={"/dashboard/payment-history"}>
-                <FaMoneyBill />
-                Payment History
-              </NavLink>
-            </li>
-            <div className="divider"></div>
-            {/* Sidebar content here */}
+
+            {/* TODO: for admin */}
+            {role === "admin" && (
+              <>
+                <li>
+                  <NavLink to={"/dashboard/users"}>
+                    <FaUserFriends />
+                    All Users
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={"/dashboard/manage-classes"}>
+                    <FaBuffer />
+                    Manage Classes
+                  </NavLink>
+                </li>
+                <div className="divider"></div>
+              </>
+            )}
+            {/* TODO: for admin */}
+
+            {/* TODO: for student/user */}
+            {role === "student" && (
+              <>
+                <li>
+                  <NavLink to={"/dashboard/selected-classes"}>
+                    <FaDiscourse />
+                    Selected Classes
+                    <div className="badge badge-accent badge-sm">
+                      {pendingCourse?.length || 0}
+                    </div>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={"/dashboard/enrolled-classes"}>
+                    <FaLayerGroup />
+                    Enrolled Classes
+                    <div className="badge badge-accent badge-sm">
+                      {approvedCourse?.length || 0}
+                    </div>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={"/dashboard/payment-history"}>
+                    <FaMoneyBill />
+                    Payment History
+                  </NavLink>
+                </li>
+                <div className="divider"></div>
+              </>
+            )}
+            {/* TODO: for student/user */}
+
             <li>
               <NavLink to={"/dashboard"}>
                 <FaAlignJustify />

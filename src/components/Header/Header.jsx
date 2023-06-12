@@ -114,7 +114,7 @@ const Header = () => {
             </nav>
             <div className="w-3/12 flex justify-start md:justify-end gap-0 md:gap-3">
               {/* Cart */}
-              {loginUser?.role === "user" && (
+              {loginUser?.role === "student" && (
                 <>
                   <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">

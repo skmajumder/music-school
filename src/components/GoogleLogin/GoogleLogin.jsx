@@ -23,7 +23,7 @@ const GoogleLogin = () => {
           photo: user.photoURL,
           gender: "",
           phone: "",
-          role: "user",
+          role: "student",
         };
         axios
           .post("http://localhost:3000/users", savedUser)

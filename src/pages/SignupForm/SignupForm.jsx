@@ -74,7 +74,7 @@ const SignupForm = () => {
           photo: userPhotoUrl,
           gender: userGender,
           phone: userPhoneNumber,
-          role: "user",
+          role: "student",
         };
         console.log(savedUser);
         axios
