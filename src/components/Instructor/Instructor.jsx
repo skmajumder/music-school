@@ -17,7 +17,7 @@ const Instructor = ({ instructor }) => {
               <li key={index} className="instructor-class inline-block">{className}</li>
             ))}
           </ul>
-          <div className="mt-3">
+          {/* <div className="mt-3">
             <Link
               to={"/"}
               className="flex justify-center items-center gap-1 font-semibold view-details"
@@ -25,7 +25,7 @@ const Instructor = ({ instructor }) => {
               <span className="text-[#E43397]">View Details</span>
               <FaLongArrowAltRight className="text-[#E43397]" />
             </Link>
-          </div>
+          </div> */}
         </div>
         <div className="shape-divider text-center mt-4"></div>
       </div>

@@ -8,6 +8,9 @@ import CourseLayout from "../layouts/CourseLayout/CourseLayout";
 import Courses from "../pages/Courses/Courses";
 import InstructorLayout from "../layouts/InstructorLayout/InstructorLayout";
 import Instructors from "../pages/Instructors/Instructors";
+import Dashboard from "../layouts/Dashboard/Dashboard";
+import SelectedClasses from "../pages/Dashboard/SelectedClasses/SelectedClasses";
+import EnrolledClasses from "../pages/Dashboard/EnrolledClasses/EnrolledClasses";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +51,21 @@ const router = createBrowserRouter([
       {
         path: "/instructors",
         element: <Instructors />,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "selected-classes",
+        element: <SelectedClasses />,
+      },
+      {
+        path: "enrolled-classes",
+        element: <EnrolledClasses />,
       },
     ],
   },

@@ -105,7 +105,7 @@ const Header = () => {
                 </li>
                 {user && (
                   <li>
-                    <Link to={"/"} className="nav-text">
+                    <Link to={"/dashboard"} className="nav-text">
                       Dashboard
                     </Link>
                   </li>
@@ -197,7 +197,7 @@ const Header = () => {
                       <li>
                         <Link
                           className="underline underline-offset-4 text-blue-700 uppercase font-medium text-[10px]"
-                          to={"/"}
+                          to={"/dashboard"}
                         >
                           Dashboard
                         </Link>
@@ -254,7 +254,7 @@ const Header = () => {
                 </li>
                 {user && (
                   <li>
-                    <Link to={"/"} className="nav-text">
+                    <Link to={"/dashboard"} className="nav-text">
                       Dashboard
                     </Link>
                   </li>

@@ -6,7 +6,6 @@ import axios from "axios";
 import useCart from "../../hooks/useCart";
 import useClass from "../../hooks/useClass";
 import { useLocation, useNavigate } from "react-router-dom";
-import useUser from "../../hooks/useUser";
 import useLoginUser from "../../hooks/useLoggedUser";
 
 const Course = ({ info }) => {
@@ -39,6 +38,8 @@ const Course = ({ info }) => {
         name: className,
         instructor: instructorName,
         price,
+        image,
+        startDate,
         status: "pending",
         email: user.email,
       };

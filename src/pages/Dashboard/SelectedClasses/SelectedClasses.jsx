@@ -1,0 +1,104 @@
+import React, { useState } from "react";
+import { FaSearch, FaShoppingBag, FaTrash } from "react-icons/fa";
+import useCart from "../../../hooks/useCart";
+
+const SelectedClasses = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const { carts } = useCart();
+
+  console.log(carts);
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredData = carts?.filter(
+    (item) =>
+      item?.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item?.instructor.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const handleDelete = (index) => {};
+
+  const handlePay = (index) => {};
+
+  return (
+    <>
+      <section className="flex-grow">
+        <div className="container mx-auto p-4">
+          <h3 className="text-center text-3xl font-medium mb-7">
+            Selected Classes
+          </h3>
+          <div className="mb-4">
+            <div className="relative flex items-center">
+              <input
+                type="text"
+                placeholder="Search by Course Name or Instructor"
+                value={searchTerm}
+                onChange={handleSearch}
+                className="border border-gray-300 focus:ring-1 focus:ring-blue-500 rounded-md p-2 pr-10 w-[50%]"
+              />
+              <FaSearch className="absolute right-3 h-5 w-5 text-gray-400" />
+            </div>
+          </div>
+          <div className="overflow-x-auto">
+            <div className="min-w-full overflow-hidden">
+              <table className="min-w-full">
+                <thead>
+                  <tr className="bg-gray-100">
+                    <th className="py-3 px-6 text-left">#</th>
+                    <th className="py-3 px-6 text-left">Image</th>
+                    <th className="py-3 px-6 text-left">Class Name</th>
+                    <th className="py-3 px-6 text-left">Instructor</th>
+                    <th className="py-3 px-6 text-left">Price</th>
+                    <th className="py-3 px-6 text-left">Start Date</th>
+                    <th className="py-3 px-6 text-left">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="text-[14px]">
+                  {filteredData.map((item, index) => (
+                    <tr
+                      key={item?._id}
+                      className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                    >
+                      <td className="py-4 px-6">{index + 1}</td>
+                      <td className="py-4 px-6">
+                        <img
+                          src={item?.image}
+                          alt={item?.name}
+                          className="w-12 h-12 rounded-full"
+                        />
+                      </td>
+                      <td className="py-4 px-6">{item?.name}</td>
+                      <td className="py-4 px-6">{item?.instructor}</td>
+                      <td className="py-4 px-6">{item?.price}</td>
+                      <td className="py-4 px-6">{item?.startDate}</td>
+                      <td className="py-4 px-6">
+                        <div className="flex">
+                          <button
+                            onClick={() => handleDelete(item?._id)}
+                            className="mr-2 text-red-500 hover:text-red-700"
+                          >
+                            <FaTrash className="h-5 w-5" />
+                          </button>
+                          <button
+                            onClick={() => handlePay(item?._id)}
+                            className="text-green-500 hover:text-green-700"
+                          >
+                            <FaShoppingBag className="h-5 w-5" />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default SelectedClasses;

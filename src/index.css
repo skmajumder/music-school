@@ -82,3 +82,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
 }
+
+.dashboard-menu .active {
+  color: #ffffff;
+}
