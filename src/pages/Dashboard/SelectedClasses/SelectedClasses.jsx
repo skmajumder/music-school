@@ -1,21 +1,26 @@
 import React, { useState } from "react";
 import { FaSearch, FaShoppingBag, FaTrash } from "react-icons/fa";
 import useCart from "../../../hooks/useCart";
+import PageTitle from "../../../components/PageTitle/PageTitle";
 
 const SelectedClasses = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const { carts } = useCart();
 
-  console.log(carts);
-
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredData = carts?.filter(
+  const filteredData = carts.filter(
     (item) =>
-      item?.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item?.instructor.toLowerCase().includes(searchTerm.toLowerCase())
+      (item?.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item?.instructor.toLowerCase().includes(searchTerm.toLowerCase())) &&
+      item?.status === "pending"
+  );
+
+  const totalPrice = filteredData.reduce(
+    (sum, currentValue) => sum + currentValue.price,
+    0
   );
 
   const handleDelete = (index) => {};
@@ -24,21 +29,24 @@ const SelectedClasses = () => {
 
   return (
     <>
+      <PageTitle title={"Selected Classes"} />
       <section className="flex-grow">
         <div className="container mx-auto p-4">
           <h3 className="text-center text-3xl font-medium mb-7">
             Selected Classes
           </h3>
           <div className="mb-4">
-            <div className="relative flex items-center">
+            <div className="flex justify-between items-center">
               <input
                 type="text"
                 placeholder="Search by Course Name or Instructor"
                 value={searchTerm}
                 onChange={handleSearch}
-                className="border border-gray-300 focus:ring-1 focus:ring-blue-500 rounded-md p-2 pr-10 w-[50%]"
+                className="text-[12px] border border-gray-300 focus:ring-1 focus:ring-blue-500 rounded-md p-2 pr-10 w-[50%]"
               />
-              <FaSearch className="absolute right-3 h-5 w-5 text-gray-400" />
+              <p className="right-3 text-gray-400">
+                Total Price: {totalPrice.toFixed(2)}
+              </p>
             </div>
           </div>
           <div className="overflow-x-auto">
@@ -46,13 +54,19 @@ const SelectedClasses = () => {
               <table className="min-w-full">
                 <thead>
                   <tr className="bg-gray-100">
-                    <th className="py-3 px-6 text-left">#</th>
-                    <th className="py-3 px-6 text-left">Image</th>
-                    <th className="py-3 px-6 text-left">Class Name</th>
-                    <th className="py-3 px-6 text-left">Instructor</th>
-                    <th className="py-3 px-6 text-left">Price</th>
-                    <th className="py-3 px-6 text-left">Start Date</th>
-                    <th className="py-3 px-6 text-left">Actions</th>
+                    <th className="py-3 px-6 text-left font-medium">#</th>
+                    <th className="py-3 px-6 text-left font-medium">Image</th>
+                    <th className="py-3 px-6 text-left font-medium">
+                      Class Name
+                    </th>
+                    <th className="py-3 px-6 text-left font-medium">
+                      Instructor
+                    </th>
+                    <th className="py-3 px-6 text-left font-medium">Price</th>
+                    <th className="py-3 px-6 text-left font-medium">
+                      Start Date
+                    </th>
+                    <th className="py-3 px-6 text-left font-medium">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="text-[14px]">

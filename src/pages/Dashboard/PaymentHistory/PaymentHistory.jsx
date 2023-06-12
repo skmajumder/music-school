@@ -1,20 +1,44 @@
 import React, { useState } from "react";
-import useCart from "../../../hooks/useCart";
+const data = [
+  {
+    transactionId: "T123456789",
+    paymentName: "Payment 1",
+    price: 99,
+    date: "2023-06-15",
+    courseName: "Course 1",
+  },
+  {
+    transactionId: "T987654321",
+    paymentName: "Payment 2",
+    price: 149,
+    date: "2023-07-01",
+    courseName: "Course 2",
+  },
+];
 
-const EnrolledClasses = () => {
+const PaymentHistory = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const { carts } = useCart();
-  console.log(carts);
+
+  const totalPrice = data.reduce(
+    (sum, currentValue) => sum + currentValue.price,
+    0
+  );
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredData = carts.filter(
+  // Filter payment history based on search term
+  const filteredData = data.filter(
     (item) =>
-      (item?.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item?.instructor.toLowerCase().includes(searchTerm.toLowerCase())) &&
-      item?.status === "approved"
+      item.paymentName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.courseName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.transactionId.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // Sort payment history by date in descending order
+  const sortedData = filteredData.sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
   );
 
   return (
@@ -22,17 +46,20 @@ const EnrolledClasses = () => {
       <section className="flex-grow">
         <div className="container mx-auto p-4">
           <h3 className="text-center text-3xl font-medium mb-7">
-            My Enrolled Classes
+            Payment History
           </h3>
           <div className="mb-4">
-            <div className="relative flex items-center">
+            <div className="flex justify-between items-center">
               <input
                 type="text"
-                placeholder="Search by Course Name or Instructor"
+                placeholder="Search by Payment Name or Course Name or Transaction Id"
                 value={searchTerm}
                 onChange={handleSearch}
                 className="text-[12px] border border-gray-300 focus:ring-1 focus:ring-blue-500 rounded-md p-2 pr-10 w-[50%]"
               />
+              <p className="right-3 text-gray-400">
+                Total Pay: {totalPrice.toFixed(2)}
+              </p>
             </div>
           </div>
           <div className="overflow-x-auto">
@@ -41,37 +68,31 @@ const EnrolledClasses = () => {
                 <thead>
                   <tr className="bg-gray-100">
                     <th className="py-3 px-6 text-left font-medium">#</th>
-                    <th className="py-3 px-6 text-left font-medium">Image</th>
                     <th className="py-3 px-6 text-left font-medium">
-                      Class Name
+                      Transaction ID
                     </th>
                     <th className="py-3 px-6 text-left font-medium">
-                      Instructor
+                      Payment Name
                     </th>
                     <th className="py-3 px-6 text-left font-medium">Price</th>
+                    <th className="py-3 px-6 text-left font-medium">Date</th>
                     <th className="py-3 px-6 text-left font-medium">
-                      Start Date
+                      Course Name
                     </th>
                   </tr>
                 </thead>
                 <tbody className="text-[14px]">
-                  {filteredData.map((item, index) => (
+                  {sortedData.map((item, index) => (
                     <tr
-                      key={item?._id}
+                      key={index}
                       className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
                     >
                       <td className="py-4 px-6">{index + 1}</td>
-                      <td className="py-4 px-6">
-                        <img
-                          src={item?.image}
-                          alt={item?.name}
-                          className="w-12 h-12 rounded-full"
-                        />
-                      </td>
-                      <td className="py-4 px-6">{item?.name}</td>
-                      <td className="py-4 px-6">{item?.instructor}</td>
-                      <td className="py-4 px-6">{item?.price}</td>
-                      <td className="py-4 px-6">{item?.startDate}</td>
+                      <td className="py-4 px-6">{item.transactionId}</td>
+                      <td className="py-4 px-6">{item.paymentName}</td>
+                      <td className="py-4 px-6">{item.price}</td>
+                      <td className="py-4 px-6">{item.date}</td>
+                      <td className="py-4 px-6">{item.courseName}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -84,4 +105,4 @@ const EnrolledClasses = () => {
   );
 };
 
-export default EnrolledClasses;
+export default PaymentHistory;

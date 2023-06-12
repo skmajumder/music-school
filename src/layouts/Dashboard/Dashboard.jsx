@@ -5,11 +5,14 @@ import {
   FaDiscourse,
   FaHome,
   FaLayerGroup,
+  FaMoneyBill,
 } from "react-icons/fa";
+import PageTitle from "../../components/PageTitle/PageTitle";
 
 const Dashboard = () => {
   return (
     <>
+      <PageTitle title={"Dashboard"} />
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
@@ -43,6 +46,12 @@ const Dashboard = () => {
               <NavLink to={"/dashboard/enrolled-classes"}>
                 <FaLayerGroup />
                 Enrolled Classes
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/dashboard/payment-history"}>
+                <FaMoneyBill />
+                Payment History
               </NavLink>
             </li>
             <div className="divider"></div>
