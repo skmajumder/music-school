@@ -4,7 +4,6 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import axios from "axios";
 import useCart from "../../hooks/useCart";
-import useClass from "../../hooks/useClass";
 import { useLocation, useNavigate } from "react-router-dom";
 import useLoginUser from "../../hooks/useLoggedUser";
 
@@ -13,7 +12,6 @@ const Course = ({ info }) => {
   const { loginUser } = useLoginUser();
 
   const { refetch } = useCart();
-  const { courseRefetch } = useClass();
   const {
     _id,
     classID,
@@ -45,23 +43,12 @@ const Course = ({ info }) => {
       };
       axios.post("http://localhost:3000/carts", courseInfo).then((response) => {
         if (response.data.insertedId) {
-          axios
-            .patch(`http://localhost:3000/classes/update/${_id}`, {
-              availableSeats: availableSeats - 1,
-              enrolledStudents: enrolledStudents + 1,
-            })
-            .then((response) => {
-              refetch();
-              courseRefetch();
-              Swal.fire(
-                "Successful!",
-                `${className} added to cart successfully`,
-                "success"
-              );
-            })
-            .catch((error) => {
-              console.error("Error updating course data:", error);
-            });
+          refetch();
+          Swal.fire(
+            "Successful!",
+            `${className} added to cart successfully`,
+            "success"
+          );
         }
       });
     } else {

@@ -7,7 +7,7 @@ const AllInstructor = () => {
 
   // * Sort the instructors based on the number of students in their class in descending order
   const sortedInstructors = instructors.sort(
-    (a, b) => b.numOfStudents - a.numOfStudents
+    (a, b) => b.numOfStudent - a.numOfStudent
   );
 
   // * Take only the top 6 instructors with the highest number of students in their class

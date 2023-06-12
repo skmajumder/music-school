@@ -191,7 +191,6 @@ const Header = () => {
                       <li>
                         <span className="justify-between">
                           {user?.displayName}
-                          <span className="badge">{loginUser?.role}</span>
                         </span>
                       </li>
                       <li>

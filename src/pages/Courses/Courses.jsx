@@ -6,6 +6,13 @@ import Breadcumb from "../../Breadcumb/Breadcumb";
 
 const Courses = () => {
   const { classes, loading, refetch } = useClass();
+  // Approved classes
+  const filteredCourses = classes.filter((item) => item?.approved === true);
+  // sorted classes based on the number of students
+  const sortedClasses = filteredCourses.sort(
+    (a, b) => b.enrolledStudents - a.enrolledStudents
+  );
+
   return (
     <>
       <Breadcumb
@@ -18,7 +25,7 @@ const Courses = () => {
       <section className="section">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 items-center">
-            {classes.map((info) => (
+            {sortedClasses.map((info) => (
               <Course key={info._id} info={info} />
             ))}
           </div>

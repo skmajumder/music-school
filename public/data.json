@@ -5,11 +5,12 @@
     "className": "Guitar",
     "instructorName": "John Smith",
     "details": "Learn to play the guitar from scratch. Join our class and become a guitar virtuoso!",
-    "availableSeats": 11,
+    "availableSeats": 5,
     "price": 50,
-    "enrolledStudents": 9,
+    "enrolledStudents": 18,
     "startDate": "2023-07-01",
-    "classID": 1
+    "classID": 1,
+    "approved": true
   },
   {
     "_id": "64864db8e8e4613a260c2686",
@@ -17,11 +18,12 @@
     "className": "Piano",
     "instructorName": "Emily Davis",
     "details": "Discover the world of piano music. Unleash your creativity with beautiful melodies!",
-    "availableSeats": 0,
+    "availableSeats": 3,
     "price": 60,
     "enrolledStudents": 5,
     "startDate": "2023-07-15",
-    "classID": 2
+    "classID": 2,
+    "approved": true
   },
   {
     "_id": "64864db8e8e4613a260c2687",
@@ -29,11 +31,12 @@
     "className": "Drum",
     "instructorName": "Michael Johnson",
     "details": "Learn the fundamentals of drumming. Feel the rhythm and be the heartbeat of the band!",
-    "availableSeats": 5,
+    "availableSeats": 0,
     "price": 45,
-    "enrolledStudents": 3,
+    "enrolledStudents": 8,
     "startDate": "2023-08-01",
-    "classID": 3
+    "classID": 3,
+    "approved": true
   },
   {
     "_id": "64864db8e8e4613a260c2688",
@@ -41,11 +44,12 @@
     "className": "Violin",
     "instructorName": "Sarah Thompson",
     "details": "Master the art of playing the violin. Express your emotions through beautiful strings!",
-    "availableSeats": 10,
+    "availableSeats": 7,
     "price": 55,
-    "enrolledStudents": 7,
+    "enrolledStudents": 10,
     "startDate": "2023-07-10",
-    "classID": 4
+    "classID": 4,
+    "approved": true
   },
   {
     "_id": "64864db8e8e4613a260c2689",
@@ -53,11 +57,12 @@
     "className": "Saxophone",
     "instructorName": "David Wilson",
     "details": "Experience the beauty of saxophone melodies. Let your soul soar with smooth jazz and soulful tunes!",
-    "availableSeats": 5,
+    "availableSeats": 3,
     "price": 70,
-    "enrolledStudents": 4,
+    "enrolledStudents": 6,
     "startDate": "2023-07-20",
-    "classID": 5
+    "classID": 5,
+    "approved": true
   },
   {
     "_id": "64864db8e8e4613a260c268a",
@@ -65,11 +70,12 @@
     "className": "Flute",
     "instructorName": "Olivia Turner",
     "details": "Learn to play enchanting tunes on the flute. Create magical melodies that touch hearts!",
-    "availableSeats": 8,
+    "availableSeats": 6,
     "price": 40,
-    "enrolledStudents": 2,
+    "enrolledStudents": 4,
     "startDate": "2023-08-05",
-    "classID": 6
+    "classID": 6,
+    "approved": true
   },
   {
     "_id": "64864db8e8e4613a260c268b",
@@ -81,7 +87,8 @@
     "price": 55,
     "enrolledStudents": 3,
     "startDate": "2023-07-12",
-    "classID": 7
+    "classID": 7,
+    "approved": false
   },
   {
     "_id": "64864db8e8e4613a260c268c",
@@ -93,7 +100,8 @@
     "price": 65,
     "enrolledStudents": 5,
     "startDate": "2023-07-08",
-    "classID": 8
+    "classID": 8,
+    "approved": false
   },
   {
     "_id": "64864db8e8e4613a260c268d",
@@ -105,7 +113,8 @@
     "price": 50,
     "enrolledStudents": 3,
     "startDate": "2023-07-25",
-    "classID": 9
+    "classID": 9,
+    "approved": true
   },
   {
     "_id": "64864db8e8e4613a260c268e",
@@ -117,6 +126,7 @@
     "price": 45,
     "enrolledStudents": 8,
     "startDate": "2023-07-03",
-    "classID": 10
+    "classID": 10,
+    "approved": false
   }
 ]

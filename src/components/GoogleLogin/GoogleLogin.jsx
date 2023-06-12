@@ -2,6 +2,7 @@ import React from "react";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const GoogleLogin = () => {
   const { googleSignIn } = useAuth();
@@ -24,22 +25,26 @@ const GoogleLogin = () => {
           phone: "",
           role: "user",
         };
-        fetch(`http://localhost:3000/users`, {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify(savedUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
+        axios
+          .post("http://localhost:3000/users", savedUser)
+          .then((response) => {
+            const data = response.data;
             if (data.insertedId) {
               Swal.fire({
                 position: "center",
                 icon: "success",
-                title: "User create successfully",
+                title: "User created successfully",
                 showConfirmButton: false,
                 timer: 1500,
               });
             }
+          })
+          .catch((error) => {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: `Error occurred during make request: ${error.message}`,
+            });
           });
         navigate(redirectLocation);
       })

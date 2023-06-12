@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
 const Instructor = ({ instructor }) => {
-  const { image, name, email, numberOfClasses, classesTaken } = instructor;
+  const { image, name, email, numOfStudent, classesTaken } = instructor;
   return (
     <>
       <div className="instructor mb-6">
@@ -12,20 +12,20 @@ const Instructor = ({ instructor }) => {
           <p className="text-[25px] text-[#181818] font-black course-name">
             {name}
           </p>
+          <p className="course-info text-[#333745b3] font-light text-[14px] leading-6">
+            {email}
+          </p>
           <ul className="text-[14px] text-[#333745bf] font-light">
             {classesTaken.map((className, index) => (
-              <li key={index} className="instructor-class inline-block">{className}</li>
+              <li key={index} className="instructor-class inline-block">
+                {className}
+              </li>
             ))}
           </ul>
-          {/* <div className="mt-3">
-            <Link
-              to={"/"}
-              className="flex justify-center items-center gap-1 font-semibold view-details"
-            >
-              <span className="text-[#E43397]">View Details</span>
-              <FaLongArrowAltRight className="text-[#E43397]" />
-            </Link>
-          </div> */}
+          <p className="course-info text-[#333745b3] font-light text-[14px] leading-6">
+            <span className="text-[#181818] uppercase">Students:</span>{" "}
+            {numOfStudent}
+          </p>
         </div>
         <div className="shape-divider text-center mt-4"></div>
       </div>

@@ -4,11 +4,13 @@ import Course from "../../components/Course/Course.jsx";
 
 const AllCourse = () => {
   const { classes, loading, refetch } = useClass();
-
-  const sortedClasses = classes.sort(
+  // Approved classes
+  const filteredCourses = classes.filter((item) => item?.approved === true);
+  // sorted classes based on the number of students
+  const sortedClasses = filteredCourses.sort(
     (a, b) => b.enrolledStudents - a.enrolledStudents
   );
-
+  // Get top 6 class
   const topClasses = sortedClasses.slice(0, 6);
 
   return (
