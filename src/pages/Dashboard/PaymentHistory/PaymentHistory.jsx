@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PageTitle from "../../../components/PageTitle/PageTitle";
 const data = [
   {
     transactionId: "T123456789",
@@ -43,6 +44,7 @@ const PaymentHistory = () => {
 
   return (
     <>
+      <PageTitle title={"Payment History"} />
       <section className="flex-grow">
         <div className="container mx-auto p-4">
           <h3 className="text-center text-3xl font-medium mb-7">

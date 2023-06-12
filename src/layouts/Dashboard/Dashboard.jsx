@@ -8,8 +8,13 @@ import {
   FaMoneyBill,
 } from "react-icons/fa";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import useCart from "../../hooks/useCart";
 
 const Dashboard = () => {
+  const { carts } = useCart();
+  const pendingCourse = carts.filter((item) => item?.status === "pending");
+  const approvedCourse = carts.filter((item) => item?.status === "approved");
+
   return (
     <>
       <PageTitle title={"Dashboard"} />
@@ -29,7 +34,7 @@ const Dashboard = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-64 h-full bg-base-200 text-base-content dashboard-menu justify-center gap-3">
+          <ul className="menu p-4 w-72 h-full bg-base-200 text-base-content dashboard-menu justify-center gap-3">
             <li>
               <NavLink to={"/"}>
                 <FaHome />
@@ -40,12 +45,18 @@ const Dashboard = () => {
               <NavLink to={"/dashboard/selected-classes"}>
                 <FaDiscourse />
                 Selected Classes
+                <div className="badge badge-accent badge-sm">
+                  {pendingCourse?.length || 0}
+                </div>
               </NavLink>
             </li>
             <li>
               <NavLink to={"/dashboard/enrolled-classes"}>
                 <FaLayerGroup />
                 Enrolled Classes
+                <div className="badge badge-accent badge-sm">
+                  {approvedCourse?.length || 0}
+                </div>
               </NavLink>
             </li>
             <li>

@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const SignupForm = () => {
   const { signUp, logOut } = useAuth();
@@ -66,7 +67,6 @@ const SignupForm = () => {
     signUp(userEmail, userPassword)
       .then((userCredential) => {
         const user = userCredential.user;
-        reset();
         updateUserInformation(user, userName, userPhotoUrl);
         const savedUser = {
           name: userName,
@@ -76,22 +76,27 @@ const SignupForm = () => {
           phone: userPhoneNumber,
           role: "user",
         };
-        fetch(`http://localhost:3000/users`, {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify(savedUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
+        console.log(savedUser);
+        axios
+          .post("http://localhost:3000/users", savedUser)
+          .then((response) => {
+            const data = response.data;
             if (data.insertedId) {
               Swal.fire({
                 position: "center",
                 icon: "success",
-                title: "User create successfully",
+                title: "User created successfully",
                 showConfirmButton: false,
                 timer: 1500,
               });
             }
+          })
+          .catch((error) => {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: `Error occurred during make request: ${error.message}`,
+            });
           });
         /**
          * * After successful registration,
@@ -182,7 +187,7 @@ const SignupForm = () => {
                       },
                       pattern: {
                         value:
-                          /^(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+                          /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).*$/,
                         message:
                           "Password must contain at least one capital letter and one special character",
                       },

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useCart from "../../../hooks/useCart";
+import PageTitle from "../../../components/PageTitle/PageTitle";
 
 const EnrolledClasses = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -19,6 +20,7 @@ const EnrolledClasses = () => {
 
   return (
     <>
+      <PageTitle title={"Enrolled Classes"} />
       <section className="flex-grow">
         <div className="container mx-auto p-4">
           <h3 className="text-center text-3xl font-medium mb-7">

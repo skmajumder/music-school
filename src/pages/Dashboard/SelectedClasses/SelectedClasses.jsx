@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import { FaSearch, FaShoppingBag, FaTrash } from "react-icons/fa";
 import useCart from "../../../hooks/useCart";
 import PageTitle from "../../../components/PageTitle/PageTitle";
+import useLoginUser from "../../../hooks/useLoggedUser";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 const SelectedClasses = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const { carts } = useCart();
+  const { carts, refetch } = useCart();
+  const { loginUser } = useLoginUser();
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -23,7 +27,43 @@ const SelectedClasses = () => {
     0
   );
 
-  const handleDelete = (index) => {};
+  const handleDelete = (course, email) => {
+    Swal.fire({
+      title: `Want to delete ${course.name} class?`,
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:3000/carts/${course._id}`, {
+            params: {
+              email: email,
+            },
+          })
+          .then((response) => {
+            if (response.data.deletedCount > 0) {
+              Swal.fire(
+                "Deleted!",
+                `${course.name} class has been deleted.`,
+                "success"
+              );
+              refetch();
+            }
+          })
+          .catch((error) => {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: `Error occurred during delete request: ${error.message}`,
+            });
+          });
+      }
+    });
+  };
 
   const handlePay = (index) => {};
 
@@ -90,7 +130,7 @@ const SelectedClasses = () => {
                       <td className="py-4 px-6">
                         <div className="flex">
                           <button
-                            onClick={() => handleDelete(item?._id)}
+                            onClick={() => handleDelete(item, loginUser.email)}
                             className="mr-2 text-red-500 hover:text-red-700"
                           >
                             <FaTrash className="h-5 w-5" />
