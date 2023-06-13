@@ -11,14 +11,17 @@ import {
 } from "react-icons/fa";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import useCart from "../../hooks/useCart";
+import useLoginUser from "../../hooks/useLoggedUser";
 
 const Dashboard = () => {
   const { carts } = useCart();
+  const { loginUser } = useLoginUser();
+
   const pendingCourse = carts.filter((item) => item?.status === "pending");
   const approvedCourse = carts.filter((item) => item?.status === "approved");
 
   // TODO: Make this dynamic from DB
-  const role = "student";
+  const role = loginUser?.role;
 
   return (
     <>

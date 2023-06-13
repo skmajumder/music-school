@@ -1,6 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
+import useAuth from "./useAuth";
+import useAxiosSecure from "./useAxiosSecure";
 
 const useUser = () => {
+  const { loading: useLoading } = useAuth();
+  const { axiosSecure } = useAxiosSecure();
   const {
     isLoading: loading,
     data: users = [],
@@ -8,8 +12,8 @@ const useUser = () => {
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const response = await fetch(`http://localhost:3000/users`);
-      return response.json();
+      const response = await axiosSecure(`/users`);
+      return response.data;
     },
   });
   return { users, loading, refetch };

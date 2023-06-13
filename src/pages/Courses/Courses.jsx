@@ -6,8 +6,12 @@ import Breadcumb from "../../Breadcumb/Breadcumb";
 
 const Courses = () => {
   const { classes, loading, refetch } = useClass();
+
   // Approved classes
-  const filteredCourses = classes.filter((item) => item?.approved === true);
+  const filteredCourses = classes.filter(
+    (item) => item?.status === "approved"
+  );
+
   // sorted classes based on the number of students
   const sortedClasses = filteredCourses.sort(
     (a, b) => b.enrolledStudents - a.enrolledStudents

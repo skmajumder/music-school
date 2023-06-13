@@ -4,7 +4,7 @@ import useAxiosSecure from "./useAxiosSecure";
 
 const useCart = () => {
   const { user, loading } = useAuth();
-  const axiosSecure = useAxiosSecure();
+  const { axiosSecure } = useAxiosSecure();
 
   const {
     isLoading,

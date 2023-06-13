@@ -44,7 +44,7 @@ const useAxiosSecure = () => {
     setupInterceptors();
   }, [logOut, navigate, axiosSecure]);
 
-  return axiosSecure;
+  return {axiosSecure};
 };
 
 export default useAxiosSecure;
