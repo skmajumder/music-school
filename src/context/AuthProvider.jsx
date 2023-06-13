@@ -10,6 +10,7 @@ import {
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export const AuthContext = createContext(null);
 
@@ -55,7 +56,14 @@ const AuthProvider = ({ children }) => {
             localStorage.setItem("access_token", accessToken);
             setLoading(false);
           })
-          .catch((error) => console.log(error));
+          .catch((error) => {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: `Something went wrong when making request`,
+            });
+            console.log(error);
+          });
       } else {
         localStorage.removeItem("access_token");
       }

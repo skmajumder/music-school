@@ -18,7 +18,7 @@ const Dashboard = () => {
   const approvedCourse = carts.filter((item) => item?.status === "approved");
 
   // TODO: Make this dynamic from DB
-  const role = "admin";
+  const role = "student";
 
   return (
     <>
