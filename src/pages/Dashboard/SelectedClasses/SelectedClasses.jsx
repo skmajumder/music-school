@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { FaMoneyCheck, FaShoppingBag, FaTrash } from "react-icons/fa";
 import useCart from "../../../hooks/useCart";
 import PageTitle from "../../../components/PageTitle/PageTitle";
-import useLoginUser from "../../../hooks/useLoggedUser";
 import Swal from "sweetalert2";
 import axios from "axios";
+import useAuth from "../../../hooks/useAuth";
 
 const SelectedClasses = () => {
+  const { user } = useAuth();
   const [searchTerm, setSearchTerm] = useState("");
   const { carts, refetch } = useCart();
-  const { loginUser } = useLoginUser();
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -130,7 +130,7 @@ const SelectedClasses = () => {
                       <td className="py-4 px-6">
                         <div className="flex flex-col justify-center items-center gap-2">
                           <button
-                            onClick={() => handleDelete(item, loginUser.email)}
+                            onClick={() => handleDelete(item, user.email)}
                             className="mr-2 text-red-500 hover:text-red-700 font-medium btn btn-sm capitalize text-[14px]"
                           >
                             <FaTrash />

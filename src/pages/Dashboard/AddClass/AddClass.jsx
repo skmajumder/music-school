@@ -4,12 +4,19 @@ import useAuth from "../../../hooks/useAuth";
 
 const AddClass = () => {
   const { user } = useAuth();
-
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
+
+  /**
+   * * Imgbb's API v1
+   * * store image in imgbb
+   */
+  const imgbbAPI = import.meta.env.VITE_IMGBB_API;
+  const imgbbAPIUrl = `https://api.imgbb.com/1/upload?key=${imgbbAPI}`;
 
   const onSubmit = (data) => {
     console.log(data);

@@ -6,10 +6,14 @@ import axios from "axios";
 import useCart from "../../hooks/useCart";
 import { useLocation, useNavigate } from "react-router-dom";
 import useLoginUser from "../../hooks/useLoggedUser";
+import useAdmin from "../../hooks/useAdmin";
+import useIsInstructor from "../../hooks/useIsInstructor";
 
 const Course = ({ info }) => {
   const { user } = useAuth();
-  const { loginUser } = useLoginUser();
+
+  const { isAdmin } = useAdmin();
+  const { isInstructor } = useIsInstructor();
 
   const { refetch } = useCart();
   const {
@@ -111,11 +115,7 @@ const Course = ({ info }) => {
               className={`btn bg-[#E43397] hover:bg-[#e43397d2] flex justify-start items-center gap-1 font-semibold ${
                 availableSeats === 0 && "disabled:!cursor-not-allowed"
               }`}
-              disabled={
-                loginUser?.role === "admin" ||
-                loginUser?.role === "instructor" ||
-                availableSeats === 0
-              }
+              disabled={isAdmin || isInstructor || availableSeats === 0}
             >
               <span className="text-[#ffffff]">
                 {availableSeats === 0 ? "Enroll End" : "Enroll Now"}

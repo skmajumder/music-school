@@ -6,11 +6,15 @@ import Avatar from "../../assets/images/avatar.png";
 import useAuth from "../../hooks/useAuth";
 import useCart from "../../hooks/useCart";
 import useLoginUser from "../../hooks/useLoggedUser";
+import useAdmin from "../../hooks/useAdmin";
+import useIsInstructor from "../../hooks/useIsInstructor";
 
 const Header = () => {
   const { user, logOut } = useAuth();
-  const { loginUser } = useLoginUser();
   const { carts } = useCart();
+
+  const { isAdmin } = useAdmin();
+  const { isInstructor } = useIsInstructor();
 
   const [isOpen, setIsOpen] = useState(false);
   const navigation = useNavigate();
@@ -114,7 +118,7 @@ const Header = () => {
             </nav>
             <div className="w-3/12 flex justify-start md:justify-end gap-0 md:gap-3">
               {/* Cart */}
-              {loginUser?.role === "student" && (
+              {!isAdmin && !isInstructor && (
                 <>
                   <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">

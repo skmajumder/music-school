@@ -12,7 +12,6 @@ const useClass = () => {
     refetch: courseRefetch,
   } = useQuery({
     queryKey: ["classes"],
-    enabled: !useLoading,
     queryFn: async () => {
       const response = await axiosSecure(`/classes`);
       return response.data;

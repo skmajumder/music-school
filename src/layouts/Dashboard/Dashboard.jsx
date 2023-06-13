@@ -13,17 +13,17 @@ import {
 } from "react-icons/fa";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import useCart from "../../hooks/useCart";
-import useLoginUser from "../../hooks/useLoggedUser";
+import useAdmin from "../../hooks/useAdmin";
+import useIsInstructor from "../../hooks/useIsInstructor";
 
 const Dashboard = () => {
   const { carts } = useCart();
-  const { loginUser } = useLoginUser();
+
+  const { isAdmin } = useAdmin();
+  const { isInstructor } = useIsInstructor();
 
   const pendingCourse = carts.filter((item) => item?.status === "pending");
   const approvedCourse = carts.filter((item) => item?.status === "approved");
-
-  // TODO: Make this dynamic from DB
-  const role = loginUser?.role;
 
   return (
     <>
@@ -53,7 +53,7 @@ const Dashboard = () => {
             </li>
 
             {/* TODO: for Instructor */}
-            {role === "instructor" && (
+            {isInstructor && (
               <>
                 <li>
                   <NavLink to={"/dashboard/add-class"}>
@@ -72,7 +72,7 @@ const Dashboard = () => {
             {/* TODO: for Instructor */}
 
             {/* TODO: for admin */}
-            {role === "admin" && (
+            {isAdmin && (
               <>
                 <li>
                   <NavLink to={"/dashboard/users"}>
@@ -91,7 +91,7 @@ const Dashboard = () => {
             {/* TODO: for admin */}
 
             {/* TODO: for student/user */}
-            {role === "student" && (
+            {!isAdmin && !isInstructor && (
               <>
                 <li>
                   <NavLink to={"/dashboard/selected-classes"}>
@@ -119,6 +119,7 @@ const Dashboard = () => {
                 </li>
               </>
             )}
+
             {/* TODO: for student/user */}
             <div className="divider"></div>
             <li>

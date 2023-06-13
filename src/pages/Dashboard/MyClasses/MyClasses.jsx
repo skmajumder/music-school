@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useClass from "../../../hooks/useClass";
 import useAuth from "../../../hooks/useAuth";
-import { FaPenSquare, FaPencilAlt } from "react-icons/fa";
+import { FaPenSquare } from "react-icons/fa";
 
 const MyClasses = () => {
   const { user } = useAuth();
@@ -9,10 +9,8 @@ const MyClasses = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const allClasses = classes.filter(
-    (course) => course.instructorEmail === user.email
+    (course) => course.instructorEmail === user?.email
   );
-
-  console.log(allClasses);
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -83,9 +81,9 @@ const MyClasses = () => {
                         <div className="flex flex-col justify-start items-center gap-2">
                           <button
                             data-tip="Update Class"
-                            className="tooltip tooltip-top capitalize text-blue-500 btn btn-outline btn-sm"
+                            className="tooltip tooltip-top capitalize text-teal-700"
                           >
-                            <FaPencilAlt className="h-5 w-5" />
+                            <FaPenSquare className="h-6 w-6" />
                           </button>
                         </div>
                       </td>
