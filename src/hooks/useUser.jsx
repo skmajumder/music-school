@@ -11,6 +11,7 @@ const useUser = () => {
     refetch,
   } = useQuery({
     queryKey: ["users"],
+    enabled: useLoading,
     queryFn: async () => {
       const response = await axiosSecure(`/users`);
       return response.data;
