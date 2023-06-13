@@ -2,10 +2,11 @@ import React from "react";
 import useAuth from "../hooks/useAuth";
 import { Navigate, useLocation } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
+import useStudent from "../hooks/useStudent";
 
 const StudentRoute = ({ children }) => {
   const { user, loading } = useAuth();
-  const { isStudent, isStudentLoading } = useAdmin();
+  const { isStudent, isStudentLoading } = useStudent();
   const currentLocation = useLocation();
 
   if (loading || isStudentLoading) {
@@ -18,10 +19,10 @@ const StudentRoute = ({ children }) => {
       </>
     );
   }
-  if (!user && !isStudent) {
-    return <Navigate to={"/login"} state={{ from: currentLocation }} replace />;
+  if (user && isStudent) {
+    return children;
   }
-  return children;
+  return <Navigate to={"/"} state={{ from: currentLocation }} replace />;
 };
 
 export default StudentRoute;
