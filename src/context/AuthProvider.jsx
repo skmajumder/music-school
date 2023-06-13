@@ -9,6 +9,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 
@@ -43,11 +44,24 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (loggedUser) => {
       setUser(loggedUser);
-      setLoading(false);
+      // * Store JWT token in local storage
+      if (loggedUser && loggedUser.email) {
+        axios
+          .post(`http://localhost:3000/jwt`, {
+            email: loggedUser.email,
+          })
+          .then((response) => {
+            const accessToken = response.data.token;
+            localStorage.setItem("access_token", accessToken);
+            setLoading(false);
+          })
+          .catch((error) => console.log(error));
+      } else {
+        localStorage.removeItem("access_token");
+      }
     });
     return () => unSubscribe();
   }, []);
-
 
   const authInfo = { user, loading, signUp, signIn, googleSignIn, logOut };
 
