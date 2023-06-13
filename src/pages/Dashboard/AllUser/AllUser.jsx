@@ -118,17 +118,23 @@ const AllUser = () => {
                             data-tip="Make Admin"
                             onClick={() => handleMakeAdmin(item)}
                             className="capitalize tooltip mr-2 text-blue-500 btn btn-outline btn-sm text-[16px]"
-                            disabled={item.role === "admin"}
+                            disabled={
+                              item.role === "admin" ||
+                              item.role === "instructor"
+                            }
                           >
-                            <FaUserShield />
+                            <FaUserShield className="w-4 h-4" />
                           </button>
                           <button
                             data-tip="Make Instructions"
                             onClick={() => handleMakeInstructor(item)}
                             className="capitalize tooltip tooltip-left text-green-500 btn btn-outline btn-sm text-[16px]"
-                            disabled={item.role === "instructor"}
+                            disabled={
+                              item.role === "admin" ||
+                              item.role === "instructor"
+                            }
                           >
-                            <FaUserTie />
+                            <FaUserTie className="w-4 h-4" />
                           </button>
                         </div>
                       </td>

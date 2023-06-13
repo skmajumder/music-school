@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaSearch, FaShoppingBag, FaTrash } from "react-icons/fa";
+import { FaMoneyCheck, FaShoppingBag, FaTrash } from "react-icons/fa";
 import useCart from "../../../hooks/useCart";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import useLoginUser from "../../../hooks/useLoggedUser";
@@ -128,18 +128,20 @@ const SelectedClasses = () => {
                       <td className="py-4 px-6">{item?.price}</td>
                       <td className="py-4 px-6">{item?.startDate}</td>
                       <td className="py-4 px-6">
-                        <div className="flex">
+                        <div className="flex flex-col justify-center items-center gap-2">
                           <button
                             onClick={() => handleDelete(item, loginUser.email)}
-                            className="mr-2 text-red-500 hover:text-red-700"
+                            className="mr-2 text-red-500 hover:text-red-700 font-medium btn btn-sm capitalize text-[14px]"
                           >
-                            <FaTrash className="h-5 w-5" />
+                            <FaTrash />
+                            <span>Delete</span>
                           </button>
                           <button
                             onClick={() => handlePay(item?._id)}
-                            className="text-green-500 hover:text-green-700"
+                            className="text-green-500 hover:text-green-700 font-medium btn btn-sm capitalize text-[14px]"
                           >
-                            <FaShoppingBag className="h-5 w-5" />
+                            <FaMoneyCheck />
+                            <span>Pay</span>
                           </button>
                         </div>
                       </td>

@@ -7,6 +7,8 @@ import {
   FaHome,
   FaLayerGroup,
   FaMoneyBill,
+  FaMusic,
+  FaRegPlusSquare,
   FaUserFriends,
 } from "react-icons/fa";
 import PageTitle from "../../components/PageTitle/PageTitle";
@@ -50,6 +52,25 @@ const Dashboard = () => {
               </NavLink>
             </li>
 
+            {/* TODO: for Instructor */}
+            {role === "instructor" && (
+              <>
+                <li>
+                  <NavLink to={"/dashboard/add-class"}>
+                    <FaRegPlusSquare />
+                    Add Class
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={"/dashboard/my-classes"}>
+                    <FaMusic />
+                    My Classes
+                  </NavLink>
+                </li>
+              </>
+            )}
+            {/* TODO: for Instructor */}
+
             {/* TODO: for admin */}
             {role === "admin" && (
               <>
@@ -65,7 +86,6 @@ const Dashboard = () => {
                     Manage Classes
                   </NavLink>
                 </li>
-                <div className="divider"></div>
               </>
             )}
             {/* TODO: for admin */}
@@ -97,11 +117,10 @@ const Dashboard = () => {
                     Payment History
                   </NavLink>
                 </li>
-                <div className="divider"></div>
               </>
             )}
             {/* TODO: for student/user */}
-
+            <div className="divider"></div>
             <li>
               <NavLink to={"/dashboard"}>
                 <FaAlignJustify />
