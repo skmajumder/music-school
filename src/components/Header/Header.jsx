@@ -8,6 +8,7 @@ import useCart from "../../hooks/useCart";
 import useLoginUser from "../../hooks/useLoggedUser";
 import useAdmin from "../../hooks/useAdmin";
 import useIsInstructor from "../../hooks/useIsInstructor";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 const Header = () => {
   const { user, logOut } = useAuth();
@@ -35,20 +36,21 @@ const Header = () => {
     <>
       <section className="top-bar bg-black py-2">
         <div className="container px-10">
-          <div className="grid grid-cols-5 text-[14px]">
-            <div className="flex items-center gap-2">
-              <FaEnvelope className="text-[#ffffffba]" />
-              <a href="#" className="text-white font-light">
-                contact@example.com
+          <div className="grid grid-cols-5 items-center text-[14px]">
+            <div className="hidden md:block">
+              <a href="#" className="text-white font-light flex justify-start items-center gap-2">
+                <FaEnvelope className="text-[#ffffffba]" />
+                <span>contact@example.com</span>
               </a>
             </div>
-            <div className="flex items-center gap-2">
-              <FaPhone className="text-[#ffffffba]" />
-              <a href="#" className="text-white font-light">
-                +88017654377
+            <div className="hidden md:block">
+              <a href="#" className="text-white font-light flex justify-start items-center gap-2">
+                <FaPhone className="text-[#ffffffba]" />
+                <span>+88017654377</span>
               </a>
             </div>
-            <div className="col-span-3 justify-self-end flex justify-center items-center gap-10">
+            <div className="col-span-5 lg:col-span-3 justify-self-center lg:justify-self-end flex justify-center items-center gap-10">
+              <ThemeToggle />
               {user ? (
                 <>
                   <button

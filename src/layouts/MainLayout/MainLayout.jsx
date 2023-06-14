@@ -1,4 +1,5 @@
 import React from "react";
+import "../../../src/theme.css";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";

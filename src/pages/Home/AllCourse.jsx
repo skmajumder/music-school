@@ -19,12 +19,12 @@ const AllCourse = () => {
     <>
       <section className="section section-class">
         <div className="container px-10">
-          <h2 className="text-[50px] text-[#121212] font-black text-center mb-10">
+          <h2 className="text-[30px] lg:text-[50px] text-[#121212] font-black text-center mb-10">
             Our Top Music Class
           </h2>
         </div>
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 items-center">
             {topClasses.map((info) => (
               <Course key={info._id} info={info} />
             ))}

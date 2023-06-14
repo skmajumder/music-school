@@ -37,7 +37,7 @@ const Instructors = () => {
       />
       <section className="section">
         <div className="container px-10">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-7 items-center">
             {randomInstructors.map((instructor) => (
               <Instructor key={instructor._id} instructor={instructor} />
             ))}

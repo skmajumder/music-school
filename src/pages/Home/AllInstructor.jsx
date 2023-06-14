@@ -17,12 +17,12 @@ const AllInstructor = () => {
     <>
       <section className="section section-class">
         <div className="container px-10">
-          <h2 className="text-[50px] text-[#121212] font-black text-center mb-10">
+          <h2 className="text-[30px] lg:text-[50px] text-[#121212] font-black text-center mb-10">
             Meet Our Top Instructor
           </h2>
         </div>
         <div className="container px-10">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-7 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-7 items-center">
             {topInstructors.map((instructor) => (
               <Instructor key={instructor._id} instructor={instructor} />
             ))}
