@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PageTitle from "../../../components/PageTitle/PageTitle";
+import useOrders from "../../../hooks/useOrders";
 const data = [
   {
     transactionId: "T123456789",
@@ -18,7 +19,10 @@ const data = [
 ];
 
 const PaymentHistory = () => {
+  const { orders, ordersRefetch } = useOrders();
   const [searchTerm, setSearchTerm] = useState("");
+
+  console.log(orders);
 
   const totalPrice = data.reduce(
     (sum, currentValue) => sum + currentValue.price,

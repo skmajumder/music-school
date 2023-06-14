@@ -97,18 +97,12 @@ const Dashboard = () => {
                   <NavLink to={"/dashboard/selected-classes"}>
                     <FaDiscourse />
                     Selected Classes
-                    <div className="badge badge-accent badge-sm">
-                      {pendingCourse?.length || 0}
-                    </div>
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to={"/dashboard/enrolled-classes"}>
                     <FaLayerGroup />
                     Enrolled Classes
-                    <div className="badge badge-accent badge-sm">
-                      {approvedCourse?.length || 0}
-                    </div>
                   </NavLink>
                 </li>
                 <li>

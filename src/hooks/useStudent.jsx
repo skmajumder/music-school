@@ -16,7 +16,7 @@ const useStudent = () => {
     enabled: !loading,
     queryFn: async () => {
       const response = await axiosSecure.get(`/users/student/${user?.email}`);
-      return response.data.admin;
+      return response.data.student;
     },
   });
   return { isStudent, studentRefetch, isStudentLoading };

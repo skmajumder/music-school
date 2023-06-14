@@ -21,6 +21,9 @@ import PrivateRouter from "./PrivateRouter";
 import StudentRoute from "./StudentRoute";
 import InstructorRoute from "./InstructorRoute";
 import UpdateClass from "../pages/Dashboard/UpdateClass/UpdateClass";
+import Payment from "../pages/Dashboard/Payment/Payment";
+import PaymentSuccess from "../pages/Dashboard/PaymentSuccess/PaymentSuccess";
+import PaymentFailed from "../pages/Dashboard/PaymentFailed/PaymentFailed";
 
 const router = createBrowserRouter([
   {
@@ -94,6 +97,30 @@ const router = createBrowserRouter([
         element: (
           <StudentRoute>
             <PaymentHistory />
+          </StudentRoute>
+        ),
+      },
+      {
+        path: "payment/:id",
+        element: (
+          <StudentRoute>
+            <Payment />
+          </StudentRoute>
+        ),
+      },
+      {
+        path: "payment-success",
+        element: (
+          <StudentRoute>
+            <PaymentSuccess />
+          </StudentRoute>
+        ),
+      },
+      {
+        path: "payment-failed",
+        element: (
+          <StudentRoute>
+            <PaymentFailed />
           </StudentRoute>
         ),
       },

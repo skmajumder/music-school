@@ -5,17 +5,27 @@ import PageTitle from "../../../components/PageTitle/PageTitle";
 import Swal from "sweetalert2";
 import axios from "axios";
 import useAuth from "../../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+import useOrders from "../../../hooks/useOrders";
 
 const SelectedClasses = () => {
   const { user } = useAuth();
   const [searchTerm, setSearchTerm] = useState("");
   const { carts, refetch } = useCart();
+  const { orders, ordersRefetch } = useOrders();
+  const navigate = useNavigate();
+
+  const updatedCarts = carts.filter((cart) => {
+    return !orders.some(
+      (order) => order.cartID === cart._id && order.courseID === cart.courseID
+    );
+  });
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredData = carts.filter(
+  const filteredData = updatedCarts.filter(
     (item) =>
       (item?.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item?.instructor.toLowerCase().includes(searchTerm.toLowerCase())) &&
@@ -65,7 +75,9 @@ const SelectedClasses = () => {
     });
   };
 
-  const handlePay = (index) => {};
+  const handlePay = (courseID) => {
+    navigate(`/dashboard/payment/${courseID}`);
+  };
 
   return (
     <>
