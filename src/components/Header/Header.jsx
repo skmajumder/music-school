@@ -10,7 +10,12 @@ import useAdmin from "../../hooks/useAdmin";
 import useIsInstructor from "../../hooks/useIsInstructor";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Header = () => {
+  AOS.init();
+
   const { user, logOut } = useAuth();
   const { carts } = useCart();
 
@@ -31,20 +36,29 @@ const Header = () => {
   const handleRegister = () => {
     navigation("/register");
   };
-
   return (
     <>
-      <section className="top-bar bg-black py-2">
+      <section
+        className="top-bar bg-black py-2"
+        data-aos="fade-up"
+        data-aos-duration="1500"
+      >
         <div className="container px-10">
           <div className="grid grid-cols-5 items-center text-[14px]">
             <div className="hidden md:block">
-              <a href="#" className="text-white font-light flex justify-start items-center gap-2">
+              <a
+                href="#"
+                className="text-white font-light flex justify-start items-center gap-2"
+              >
                 <FaEnvelope className="text-[#ffffffba]" />
                 <span>contact@example.com</span>
               </a>
             </div>
             <div className="hidden md:block">
-              <a href="#" className="text-white font-light flex justify-start items-center gap-2">
+              <a
+                href="#"
+                className="text-white font-light flex justify-start items-center gap-2"
+              >
                 <FaPhone className="text-[#ffffffba]" />
                 <span>+88017654377</span>
               </a>

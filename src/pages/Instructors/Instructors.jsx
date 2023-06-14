@@ -3,7 +3,11 @@ import Breadcumb from "../../Breadcumb/Breadcumb";
 import useInstructor from "../../hooks/useInstructor";
 import Instructor from "../../components/Instructor/Instructor";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Instructors = () => {
+  AOS.init();
   const { instructors } = useInstructor();
   const [randomInstructors, setRandomInstructors] = useState([]);
 
@@ -35,7 +39,8 @@ const Instructors = () => {
           "We have talented and very experienced instructors who teach and unleash your creative potential."
         }
       />
-      <section className="section">
+      <section className="section" data-aos="fade-up"
+        data-aos-duration="1500">
         <div className="container px-10">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-7 items-center">
             {randomInstructors.map((instructor) => (

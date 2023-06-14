@@ -9,10 +9,18 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Footer = () => {
+  AOS.init();
   return (
     <>
-      <footer className="site-footer bg-[#000000]">
+      <footer
+        className="site-footer bg-[#000000]"
+        data-aos="fade-up"
+        data-aos-duration="1500"
+      >
         <div className="container px-10 space-y-10">
           <div className="grid grid-cols-2 gap-y-10 md:grid-cols-5 lg:gap-y-0 gap-x-7 text-white">
             <div className="widget col-span-2">

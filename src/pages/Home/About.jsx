@@ -1,10 +1,15 @@
 import React from "react";
 import Banner from "../../assets/images/classes/music.jpg";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const About = () => {
+  AOS.init();
   return (
     <>
-      <section className="section section-about">
+      <section className="section section-about" data-aos="fade-up"
+        data-aos-duration="1500">
         <div className="container px-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-2 justify-between items-center gap-10">
             <div className="about-img">

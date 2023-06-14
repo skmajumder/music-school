@@ -4,7 +4,11 @@ import useClass from "../../hooks/useClass";
 import Course from "../../components/Course/Course";
 import Breadcumb from "../../Breadcumb/Breadcumb";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Courses = () => {
+  AOS.init();
   const { classes, loading, refetch } = useClass();
 
   // Approved classes
@@ -26,7 +30,8 @@ const Courses = () => {
           "Join us for a thrilling musical adventure and unleash your creative potential."
         }
       />
-      <section className="section">
+      <section className="section" data-aos="fade-up"
+        data-aos-duration="1500">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 items-center">
             {sortedClasses.map((info) => (

@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const CTA = () => {
+  AOS.init();
   return (
     <>
-      <section className="section section-cta bg-[#E43397]">
+      <section className="section section-cta bg-[#E43397]" data-aos="fade-up"
+        data-aos-duration="1500">
         <div className="container px-4 lg:px-10">
           <div className="flex flex-col lg:flex-row justify-between items-center">
             <div className="w-full lg:w-[60%]">

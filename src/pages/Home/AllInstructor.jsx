@@ -1,8 +1,11 @@
 import React from "react";
 import useInstructor from "../../hooks/useInstructor";
 import Instructor from "../../components/Instructor/Instructor";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const AllInstructor = () => {
+  AOS.init();
   const { instructors, loading, refetch } = useInstructor();
 
   // * Sort the instructors based on the number of students in their class in descending order
@@ -15,7 +18,8 @@ const AllInstructor = () => {
 
   return (
     <>
-      <section className="section section-class">
+      <section className="section section-class" data-aos="fade-up"
+        data-aos-duration="1500">
         <div className="container px-10">
           <h2 className="text-[30px] lg:text-[50px] text-[#121212] font-black text-center mb-10">
             Meet Our Top Instructor

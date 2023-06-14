@@ -38,6 +38,7 @@ Github [https://github.com/programming-hero-web-course1/b712-summer-camp-client-
 - swiper
 - tailwindcss
 - daisyui
+- Framer Motion
 
 ## Live Site
 

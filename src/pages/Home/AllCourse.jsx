@@ -2,7 +2,12 @@ import React from "react";
 import useClass from "../../hooks/useClass";
 import Course from "../../components/Course/Course.jsx";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const AllCourse = () => {
+  AOS.init();
+
   const { classes, loading, refetch } = useClass();
 
   // Approved classes
@@ -17,7 +22,8 @@ const AllCourse = () => {
 
   return (
     <>
-      <section className="section section-class">
+      <section className="section section-class" data-aos="fade-up"
+        data-aos-duration="1500">
         <div className="container px-10">
           <h2 className="text-[30px] lg:text-[50px] text-[#121212] font-black text-center mb-10">
             Our Top Music Class

@@ -1,10 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Breadcumb = ({ mainTitle, secondTitle, text }) => {
+  AOS.init();
   return (
     <>
-      <section className="section-breadcumb">
+      <section
+        className="section-breadcumb"
+        data-aos="fade-up"
+        data-aos-duration="1500"
+      >
         <div className="bg-[#E43397]">
           <div className="container px-10 py-5 flex justify-between items-center">
             <div className="page-name">

@@ -1,4 +1,7 @@
 import React from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import Logo1 from "../../assets/images/Logo-1.png";
 import Logo2 from "../../assets/images/Logo-2.png";
 import Logo3 from "../../assets/images/Logo-3.png";
@@ -6,9 +9,15 @@ import Logo4 from "../../assets/images/Logo-4.png";
 import Logo5 from "../../assets/images/Logo-5.png";
 
 const SeenAs = () => {
+  AOS.init();
+
   return (
     <>
-      <section className="section section-as-seen-as">
+      <section
+        className="section section-as-seen-as"
+        data-aos="fade-up"
+        data-aos-duration="1500"
+      >
         <div className="container px-10">
           <h3 className="text-3xl font-medium text-[#000000e1] mb-16 text-center">
             Supported By
