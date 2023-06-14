@@ -39,7 +39,7 @@ const SelectedClasses = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/carts/${course._id}`, {
+          .delete(`https://b7a12-summer-camp-server-side-skmajumder.vercel.app/carts/${course._id}`, {
             params: {
               email: email,
             },

@@ -9,7 +9,7 @@ const useAxiosSecure = () => {
 
   // * Axios instance with base URL
   const axiosSecure = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: "https://b7a12-summer-camp-server-side-skmajumder.vercel.app",
   });
 
   const setupInterceptors = () => {

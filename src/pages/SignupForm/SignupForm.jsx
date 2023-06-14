@@ -78,7 +78,7 @@ const SignupForm = () => {
         };
         console.log(savedUser);
         axios
-          .post("http://localhost:3000/users", savedUser)
+          .post("https://b7a12-summer-camp-server-side-skmajumder.vercel.app/users", savedUser)
           .then((response) => {
             const data = response.data;
             if (data.insertedId) {

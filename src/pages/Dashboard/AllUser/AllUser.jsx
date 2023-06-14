@@ -23,7 +23,7 @@ const AllUser = () => {
 
   const handleMakeAdmin = (user) => {
     axios
-      .patch(`http://localhost:3000/users/${user._id}`, {
+      .patch(`https://b7a12-summer-camp-server-side-skmajumder.vercel.app/users/${user._id}`, {
         role: "admin",
       })
       .then((response) => {
@@ -45,7 +45,7 @@ const AllUser = () => {
 
   const handleMakeInstructor = (user) => {
     axios
-      .patch(`http://localhost:3000/users/${user._id}`, {
+      .patch(`https://b7a12-summer-camp-server-side-skmajumder.vercel.app/users/${user._id}`, {
         role: "instructor",
       })
       .then((response) => {

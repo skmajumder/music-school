@@ -45,7 +45,7 @@ const Course = ({ info }) => {
         status: "pending",
         email: user.email,
       };
-      axios.post("http://localhost:3000/carts", courseInfo).then((response) => {
+      axios.post("https://b7a12-summer-camp-server-side-skmajumder.vercel.app/carts", courseInfo).then((response) => {
         if (response.data.insertedId) {
           refetch();
           Swal.fire(

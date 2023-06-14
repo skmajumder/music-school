@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
       // * Store JWT token in local storage
       if (loggedUser && loggedUser.email) {
         axios
-          .post(`http://localhost:3000/jwt`, {
+          .post(`https://b7a12-summer-camp-server-side-skmajumder.vercel.app/jwt`, {
             email: loggedUser.email,
           })
           .then((response) => {
