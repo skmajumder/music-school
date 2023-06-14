@@ -1,6 +1,5 @@
 [
   {
-    "_id": "64864db8e8e4613a260c2685",
     "image": "https://i.ibb.co/vs4Zwcb/guitar.jpg",
     "className": "Guitar",
     "instructorName": "John Smith",
@@ -10,25 +9,21 @@
     "price": 50,
     "enrolledStudents": 18,
     "startDate": "2023-07-01",
-    "classID": 1,
     "status": "approved"
   },
   {
-    "_id": "64864db8e8e4613a260c2686",
     "image": "https://i.ibb.co/k2R9yVg/piano.jpg",
     "className": "Piano",
-    "instructorName": "Emily Davis",
-    "instructorEmail": "",
+    "instructorName": "Shuvo Majumder",
+    "instructorEmail": "shuvokumarmajumder@gmail.com",
     "details": "Discover the world of piano music. Unleash your creativity with beautiful melodies!",
     "availableSeats": 3,
     "price": 60,
     "enrolledStudents": 5,
     "startDate": "2023-07-15",
-    "classID": 2,
     "status": "approved"
   },
   {
-    "_id": "64864db8e8e4613a260c2687",
     "image": "https://i.ibb.co/ry1qJYc/drum.jpg",
     "className": "Drum",
     "instructorName": "Michael Johnson",
@@ -38,11 +33,9 @@
     "price": 45,
     "enrolledStudents": 8,
     "startDate": "2023-08-01",
-    "classID": 3,
-    "status": "denied"
+    "status": "approved"
   },
   {
-    "_id": "64864db8e8e4613a260c2688",
     "image": "https://i.ibb.co/qxJvhLT/violin.jpg",
     "className": "Violin",
     "instructorName": "Sarah Thompson",
@@ -52,11 +45,9 @@
     "price": 55,
     "enrolledStudents": 10,
     "startDate": "2023-07-10",
-    "classID": 4,
     "status": "approved"
   },
   {
-    "_id": "64864db8e8e4613a260c2689",
     "image": "https://i.ibb.co/DbBSpBb/saxophone.jpg",
     "className": "Saxophone",
     "instructorName": "David Wilson",
@@ -66,25 +57,21 @@
     "price": 70,
     "enrolledStudents": 6,
     "startDate": "2023-07-20",
-    "classID": 5,
-    "status": "approved"
+    "status": "denied"
   },
   {
-    "_id": "64864db8e8e4613a260c268a",
     "image": "https://i.ibb.co/j5Bp1Jv/flute.jpg",
     "className": "Flute",
-    "instructorName": "Olivia Turner",
-    "instructorEmail": "",
+    "instructorName": "Shuvo Majumder",
+    "instructorEmail": "shuvokumarmajumder@gmail.com",
     "details": "Learn to play enchanting tunes on the flute. Create magical melodies that touch hearts!",
     "availableSeats": 6,
     "price": 40,
     "enrolledStudents": 4,
     "startDate": "2023-08-05",
-    "classID": 6,
     "status": "approved"
   },
   {
-    "_id": "64864db8e8e4613a260c268b",
     "image": "https://i.ibb.co/dBd2938/banjo.jpg",
     "className": "Banjo",
     "instructorName": "Robert Anderson",
@@ -94,11 +81,9 @@
     "price": 55,
     "enrolledStudents": 3,
     "startDate": "2023-07-12",
-    "classID": 7,
-    "status": "pending"
+    "status": "approved"
   },
   {
-    "_id": "64864db8e8e4613a260c268c",
     "image": "https://i.ibb.co/3pNNYC4/sitar.jpg",
     "className": "Sitar",
     "instructorName": "Neha Patel",
@@ -108,11 +93,9 @@
     "price": 65,
     "enrolledStudents": 5,
     "startDate": "2023-07-08",
-    "classID": 8,
     "status": "pending"
   },
   {
-    "_id": "64864db8e8e4613a260c268d",
     "image": "https://i.ibb.co/4dRhjdj/accordion.jpg",
     "className": "Accordion",
     "instructorName": "Antonio Rossi",
@@ -122,11 +105,9 @@
     "price": 50,
     "enrolledStudents": 3,
     "startDate": "2023-07-25",
-    "classID": 9,
     "status": "approved"
   },
   {
-    "_id": "64864db8e8e4613a260c268e",
     "image": "https://i.ibb.co/J73J1wq/clarinet.jpg",
     "className": "Clarinet",
     "instructorName": "Sophie Martin",
@@ -136,7 +117,18 @@
     "price": 45,
     "enrolledStudents": 8,
     "startDate": "2023-07-03",
-    "classID": 10,
-    "status": "pending"
+    "status": "denied"
+  },
+  {
+    "className": "Tabla",
+    "instructorName": "Shuvo Kumar Majumder",
+    "instructorEmail": "shuvokumarmajumder@gmail.com",
+    "availableSeats": "10",
+    "startDate": "2023-06-28",
+    "details": "Learn the fundamentals of Tabla. Feel the rhythm and be the heartbeat of the classical!",
+    "price": 6000,
+    "image": "https://i.ibb.co/Pm21VNH/drum.jpg",
+    "status": "pending",
+    "feedback": ""
   }
 ]

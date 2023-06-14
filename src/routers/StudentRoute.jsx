@@ -19,10 +19,10 @@ const StudentRoute = ({ children }) => {
       </>
     );
   }
-  if (user && isStudent) {
-    return children;
+  if (!user && !isStudent) {
+    return <Navigate to={"/"} state={{ from: currentLocation }} replace />;
   }
-  return <Navigate to={"/"} state={{ from: currentLocation }} replace />;
+  return children;
 };
 
 export default StudentRoute;

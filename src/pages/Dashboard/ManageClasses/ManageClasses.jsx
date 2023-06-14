@@ -4,7 +4,6 @@ import useClass from "../../../hooks/useClass";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
-
 const ManageClasses = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const { classes, courseRefetch } = useClass();
@@ -27,7 +26,6 @@ const ManageClasses = () => {
         status: status,
       })
       .then((res) => {
-        console.log("status", res.data);
         if (res.data.modifiedCount > 0) {
           courseRefetch();
           Swal.fire("Update!", `Class ${status}`, "success");

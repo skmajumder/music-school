@@ -16,10 +16,10 @@ const PrivateRouter = ({ children }) => {
       </>
     );
   }
-  if (user) {
-    return children;
+  if (!user) {
+    return <Navigate to={"/login"} state={{ from: currentLocation }} replace />;
   }
-  return <Navigate to={"/login"} state={{ from: currentLocation }} replace />;
+  return children;
 };
 
 export default PrivateRouter;
