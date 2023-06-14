@@ -17,7 +17,10 @@ const SelectedClasses = () => {
 
   const updatedCarts = carts.filter((cart) => {
     return !orders.some(
-      (order) => order.cartID === cart._id && order.courseID === cart.courseID
+      (order) =>
+        order.cartID === cart._id &&
+        order.courseID === cart.courseID &&
+        order.paidStatus === true
     );
   });
 
@@ -49,11 +52,14 @@ const SelectedClasses = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://b7a12-summer-camp-server-side-skmajumder.vercel.app/carts/${course._id}`, {
-            params: {
-              email: email,
-            },
-          })
+          .delete(
+            `https://b7a12-summer-camp-server-side-skmajumder.vercel.app/carts/${course._id}`,
+            {
+              params: {
+                email: email,
+              },
+            }
+          )
           .then((response) => {
             if (response.data.deletedCount > 0) {
               Swal.fire(
